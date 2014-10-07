@@ -1,0 +1,18 @@
+# Propiedades de plugin
+plugin.GraphvizView.GraphvizViewPlugin.name=GraphvizView
+plugin.GraphvizView.GraphvizViewPlugin.activate=startup
+plugin.GraphvizView.GraphvizViewPlugin.description=Visualizar Graphviz a medida que se escribe su c&oacute;digo
+plugin.GraphvizView.GraphvizViewPlugin.author=&Aacute;ngel Go&ntilde;i, Jos&eacute; Ojeda
+plugin.GraphvizView.GraphvizViewPlugin.version=0.0alpha
+plugin.GraphvizView.GraphvizViewPlugin.docs=info.html
+plugin.GraphvizView.GraphvizViewPlugin.usePluginHome=true
+plugin.GraphvizView.GraphvizViewPlugin.depend.0=jdk 1.7
+plugin.GraphvizView.GraphvizViewPlugin.depend.1=jedit 05.02.00.00
+plugin.GraphvizView.GraphvizViewPlugin.option-pane=GraphvizView
+
+# Etiquetas de menú del plugin
+GraphvizView-mostrar.label=Mostrar GraphvizView
+GraphvizView-ocultar.label=Ocultar GraphvizView
+
+# Ítemes del menú del plugin
+plugin.GraphvizView.GraphvizViewPlugin.menu=GraphvizView-mostrar GraphvizView-ocultar
