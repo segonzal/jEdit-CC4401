@@ -1,3 +1,6 @@
+// Programado en base a http://www.jedit.org/users-guide/writing-plugins-part.html
+// y siguiendo como ejemplo de plugin a Minimap.
+
 package GraphvizView;
 
 import org.gjt.sp.jedit.EditPlugin;
@@ -14,16 +17,20 @@ import java.awt.EventQueue;
 
 public class GraphvizViewPlugin extends EditPlugin
 {
+	// Map de todas las instancias de visores de Graphviz.
+	// Se almacenan pares (EditPane de jEdit y visor de GraphvizView).
 	private static Map<EditPane, GraphvizView> views;
 
-	
 	private static void hide(EditPane editPane, boolean restore)
 	{
+		// Si el EditPane no está en el Map, entonces no tiene actualmente
+		// un visor.
 		if (!views.containsKey(editPane))
 		{
 			return;
 		}
 		
+		// Si está, se obtiene su visor, y se le ordena ocultarse.
 		GraphvizView view = views.get(editPane);
 		view.stop(restore);
 		views.remove(editPane);
@@ -39,11 +46,13 @@ public class GraphvizViewPlugin extends EditPlugin
 	@Override
 	public void start()
 	{
+		// Inicializar el Map de vistas.
 		views = new HashMap<EditPane, GraphvizView>();
 	}
 	
 	public static void showAll()
 	{
+		// Visitar cada EditPane, y hacer que muestre un visor.
 		jEdit.visit(new JEditVisitorAdapter()
 		{
 			@Override
@@ -56,10 +65,13 @@ public class GraphvizViewPlugin extends EditPlugin
 	
 	public static void show(final EditPane editPane)
 	{
+		// Si EditPane ya está en Map, entonces ya muestra el visor.
 		if (views.containsKey(editPane))
 		{
 			return;
 		}
+		
+		// Si no, ordenar mostrarlo.
 		EventQueue.invokeLater(new Runnable()
 		{
 			public void run()
@@ -73,6 +85,7 @@ public class GraphvizViewPlugin extends EditPlugin
 	
 	public static void hideAll()
 	{
+		// Visitar cada EditPane, y hacer que oculten sus visores.
 		Set<EditPane> editPanes = new HashSet<EditPane>();
 		for (EditPane ep: views.keySet())
 		{
@@ -86,6 +99,7 @@ public class GraphvizViewPlugin extends EditPlugin
 	
 	public static void hide(EditPane editPane)
 	{
+		// Ordenar la ocultación del visor asociado al EditPane indicado.
 		hide(editPane, true);
 	}
 	
