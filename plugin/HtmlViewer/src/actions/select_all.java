@@ -1,9 +1,9 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
 import java.awt.event.ActionEvent;
 
 
-public class select_all extends InfoViewerAction {
+public class select_all extends HtmlViewerAction {
     
     /**
 	 * 

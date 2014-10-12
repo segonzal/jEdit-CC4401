@@ -1,4 +1,4 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -10,7 +10,7 @@ import org.gjt.sp.jedit.io.FileVFS;
 import org.gjt.sp.jedit.io.VFSManager;
 
 
-public class open_file extends InfoViewerAction
+public class open_file extends HtmlViewerAction
 {
 
     /**

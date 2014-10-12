@@ -1,13 +1,13 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
-import plugin.InfoViewer.infoviewer.InfoViewer;
+import plugin.HtmlViewer.src.HtmlViewer;
 
 import java.awt.event.ActionEvent;
 
 import org.gjt.sp.jedit.EditAction;
 import org.gjt.sp.jedit.jEdit;
 
-public class ToggleSidebar extends InfoViewerAction
+public class ToggleSidebar extends HtmlViewerAction
 {
 	public static final String name ="infoviewer.toggle_sidebar"; 
 

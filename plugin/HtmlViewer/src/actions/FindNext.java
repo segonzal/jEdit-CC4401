@@ -1,6 +1,6 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
-import plugin.InfoViewer.infoviewer.InfoViewer;
+import  plugin.HtmlViewer.src.HtmlViewer;
 
 import java.awt.event.ActionEvent;
 
@@ -11,7 +11,7 @@ public class FindNext extends Find
 	}
 	public void actionPerformed(ActionEvent e)
 	{
-        InfoViewer v = getViewer(e);
+		HtmlViewer v = getViewer(e);
         
 	}
 

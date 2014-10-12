@@ -1,13 +1,13 @@
 
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
 import java.awt.event.ActionEvent;
 import org.gjt.sp.jedit.jEdit;
 import org.gjt.sp.jedit.GUIUtilities;
-import plugin.InfoViewer.infoviewer.InfoViewer;
+import plugin.HtmlViewer.src.HtmlViewer;
 
 
-public class home extends InfoViewerAction {
+public class home extends HtmlViewerAction {
     
 	private static final long serialVersionUID = 2183528446575469446L;
 
@@ -17,7 +17,7 @@ public class home extends InfoViewerAction {
     
     public void actionPerformed(ActionEvent evt) {
         String home = jEdit.getProperty("infoviewer.homepage");
-        InfoViewer viewer = getViewer(evt);
+        HtmlViewer viewer = getViewer(evt);
         if (home == null) {
             GUIUtilities.error(viewer, "infoviewer.error.nohome", null);
         } else {

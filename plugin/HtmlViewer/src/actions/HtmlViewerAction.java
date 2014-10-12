@@ -1,6 +1,6 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
-import plugin.InfoViewer.infoviewer.InfoViewer;
+import plugin.HtmlViewer.src.HtmlViewer;
 
 import java.awt.Component;
 import java.awt.Frame;
@@ -31,7 +31,7 @@ import org.gjt.sp.jedit.gui.KeyEventTranslator;
 import org.gjt.sp.util.Log;
 
 
-public abstract class InfoViewerAction extends AbstractAction 
+public abstract class HtmlViewerAction extends AbstractAction 
 {
 	/** Base name for properties */
 	String name;
@@ -161,7 +161,7 @@ public abstract class InfoViewerAction extends AbstractAction
 	 *                </ul>
 	 * @see java.awt.KeyStroke#getKeyStroke
 	 */
-	InfoViewerAction(String name_key)
+	HtmlViewerAction(String name_key)
 	{
 		super(jEdit.getProperty(name_key));
 		name = name_key;
@@ -209,7 +209,7 @@ public abstract class InfoViewerAction extends AbstractAction
 	/**
 	 * Determines the InfoViewer to use for the action.
 	 */
-	public static InfoViewer getViewer(EventObject evt)
+	public static HtmlViewer getViewer(EventObject evt)
 	{
 		if (evt == null)
 			return null; // this shouldn't happen
@@ -224,12 +224,12 @@ public abstract class InfoViewerAction extends AbstractAction
 	/**
 	 * Finds the InfoViewer parent of the specified component.
 	 */
-	public static InfoViewer getViewer(Component comp)
+	public static HtmlViewer getViewer(Component comp)
 	{
 		for (;;)
 		{
-			if (comp instanceof InfoViewer)
-				return (InfoViewer) comp;
+			if (comp instanceof HtmlViewer)
+				return (HtmlViewer) comp;
 			else if (comp instanceof JPopupMenu)
 				comp = ((JPopupMenu) comp).getInvoker();
 			else if (comp != null)

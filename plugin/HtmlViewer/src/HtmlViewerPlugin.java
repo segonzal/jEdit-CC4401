@@ -1,4 +1,4 @@
-package plugin.InfoViewer.infoviewer;
+package plugin.HtmlViewer.src;
 
 import java.awt.Component;
 import java.awt.Frame;
@@ -24,7 +24,7 @@ import org.gjt.sp.jedit.help.HelpViewer;
 import org.gjt.sp.jedit.io.FileVFS;
 import org.gjt.sp.util.Log;
 
-public class InfoViewerPlugin extends EditPlugin
+public class HtmlViewerPlugin extends EditPlugin
 {
 
 	// begin EditPlugin implementation
@@ -113,7 +113,7 @@ public class InfoViewerPlugin extends EditPlugin
 		if (url.startsWith("jeditresource:"))
 			browsertype = "internal";
 
-		Log.log(Log.DEBUG, InfoViewerPlugin.class, "(" +
+		Log.log(Log.DEBUG, HtmlViewerPlugin.class, "(" +
                  browsertype + "): openURL: "	+ url);
 
 		if ("external".equals(browsertype))
@@ -130,7 +130,7 @@ public class InfoViewerPlugin extends EditPlugin
 	{
 		DockableWindowManager mgr = view.getDockableWindowManager();
 		mgr.showDockableWindow("infoviewer");
-		InfoViewer iv = (InfoViewer) mgr.getDockable("infoviewer");
+		HtmlViewer iv = (HtmlViewer) mgr.getDockable("infoviewer");
 		iv.gotoURL(url, true, 0);
 	}
 
@@ -182,7 +182,7 @@ public class InfoViewerPlugin extends EditPlugin
 			}
 			catch (Exception ex)
 			{
-				Log.log(Log.DEBUG, InfoViewerPlugin.class, ex);
+				Log.log(Log.DEBUG, HtmlViewerPlugin.class, ex);
 			}
 
 			if (obj == null)
@@ -195,7 +195,7 @@ public class InfoViewerPlugin extends EditPlugin
 				}
 				catch (Exception ex)
 				{
-					Log.log(Log.DEBUG, InfoViewerPlugin.class, ex);
+					Log.log(Log.DEBUG, HtmlViewerPlugin.class, ex);
 				}
 			}
 
@@ -209,7 +209,7 @@ public class InfoViewerPlugin extends EditPlugin
 				}
 				catch (Exception ex)
 				{
-					Log.log(Log.DEBUG, InfoViewerPlugin.class, ex);
+					Log.log(Log.DEBUG, HtmlViewerPlugin.class, ex);
 				}
 			}
 
@@ -237,7 +237,7 @@ public class InfoViewerPlugin extends EditPlugin
 			}
 			catch (Exception ex)
 			{
-				Log.log(Log.DEBUG, InfoViewerPlugin.class, ex);
+				Log.log(Log.DEBUG, HtmlViewerPlugin.class, ex);
 			}
 
 			if (!ok)
@@ -254,7 +254,7 @@ public class InfoViewerPlugin extends EditPlugin
 				}
 				catch (Exception ex)
 				{
-					Log.log(Log.DEBUG, InfoViewerPlugin.class, ex);
+					Log.log(Log.DEBUG, HtmlViewerPlugin.class, ex);
 				}
 			}
 
@@ -271,7 +271,7 @@ public class InfoViewerPlugin extends EditPlugin
 				}
 				catch (Exception ex)
 				{
-					Log.log(Log.DEBUG, InfoViewerPlugin.class, ex);
+					Log.log(Log.DEBUG, HtmlViewerPlugin.class, ex);
 				}
 			}
 
@@ -397,7 +397,7 @@ public class InfoViewerPlugin extends EditPlugin
 		args.copyInto(result);
 
 		for (int i = 0; i < result.length; i++)
-			Log.log(Log.DEBUG, InfoViewerPlugin.class, "args[" + i + "]=" + result[i]);
+			Log.log(Log.DEBUG, HtmlViewerPlugin.class, "args[" + i + "]=" + result[i]);
 
 		return result;
 	}

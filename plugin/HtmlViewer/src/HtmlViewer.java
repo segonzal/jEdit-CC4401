@@ -1,9 +1,9 @@
-package plugin.InfoViewer.infoviewer;
+package plugin.HtmlViewer.src;
 
-import plugin.InfoViewer.infoviewer.actions.InfoViewerAction;
-import plugin.InfoViewer.infoviewer.actions.ToggleSidebar;
-import plugin.InfoViewer.infoviewer.workaround.EnhancedJEditorPane;
-import plugin.InfoViewer.infoviewer.workaround.EnhancedJToolBar;
+import plugin.HtmlViewer.src.actions.HtmlViewerAction;
+import plugin.HtmlViewer.src.actions.ToggleSidebar;
+import plugin.HtmlViewer.src.workaround.EnhancedJEditorPane;
+import plugin.HtmlViewer.src.workaround.EnhancedJToolBar;
 
 import java.awt.BorderLayout;
 import java.awt.Cursor;
@@ -89,7 +89,7 @@ import org.gjt.sp.util.Log;
  * @author Dirk Moebius
  * @author Slava Pestov
  */
-public class InfoViewer extends JPanel implements HyperlinkListener, PropertyChangeListener,
+public class HtmlViewer extends JPanel implements HyperlinkListener, PropertyChangeListener,
 	EBComponent, DefaultFocusComponent
 {
 	// {{{ Proteced Members
@@ -109,7 +109,7 @@ public class InfoViewer extends JPanel implements HyperlinkListener, PropertyCha
 	 * @param position
 	 *                docking position.
 	 */
-	public InfoViewer(View view, String position)
+	public HtmlViewer(View view, String position)
 	{
 		setName("infoviewer");
 		if (position == null)
@@ -722,23 +722,23 @@ public class InfoViewer extends JPanel implements HyperlinkListener, PropertyCha
 	// {{{ createActions ()
 	private void createActions()
 	{
-		aOpenFile = new plugin.InfoViewer.infoviewer.actions.open_file();
-		aOpenBuffer = new plugin.InfoViewer.infoviewer.actions.open_buffer();
-		aEditURL = new plugin.InfoViewer.infoviewer.actions.edit_url();
-		aReload = new plugin.InfoViewer.infoviewer.actions.reload();
-		aClose = new plugin.InfoViewer.infoviewer.actions.close();
-		aCopy = new plugin.InfoViewer.infoviewer.actions.copy();
-		aSelectAll = new plugin.InfoViewer.infoviewer.actions.select_all();
-		aBack = new plugin.InfoViewer.infoviewer.actions.back();
-		aOpenLocation = new plugin.InfoViewer.infoviewer.actions.OpenLocation();
-		aForward = new plugin.InfoViewer.infoviewer.actions.forward();
-		aHome = new plugin.InfoViewer.infoviewer.actions.home();
-		aBookmarksAdd = new plugin.InfoViewer.infoviewer.actions.bookmarks_add();
-		aBookmarksEdit = new plugin.InfoViewer.infoviewer.actions.bookmarks_edit();
-		aToggleSidebar = new plugin.InfoViewer.infoviewer.actions.ToggleSidebar();
+		aOpenFile = new plugin.HtmlViewer.src.actions.open_file();
+		aOpenBuffer = new plugin.HtmlViewer.src.actions.open_buffer();
+		aEditURL = new plugin.HtmlViewer.src.actions.edit_url();
+		aReload = new plugin.HtmlViewer.src.actions.reload();
+		aClose = new plugin.HtmlViewer.src.actions.close();
+		aCopy = new plugin.HtmlViewer.src.actions.copy();
+		aSelectAll = new plugin.HtmlViewer.src.actions.select_all();
+		aBack = new plugin.HtmlViewer.src.actions.back();
+		aOpenLocation = new plugin.HtmlViewer.src.actions.OpenLocation();
+		aForward = new plugin.HtmlViewer.src.actions.forward();
+		aHome = new plugin.HtmlViewer.src.actions.home();
+		aBookmarksAdd = new plugin.HtmlViewer.src.actions.bookmarks_add();
+		aBookmarksEdit = new plugin.HtmlViewer.src.actions.bookmarks_edit();
+		aToggleSidebar = new plugin.HtmlViewer.src.actions.ToggleSidebar();
 
-		aAbout = new plugin.InfoViewer.infoviewer.actions.about();
-		aFollowLink = new plugin.InfoViewer.infoviewer.actions.follow_link();
+		aAbout = new plugin.HtmlViewer.src.actions.about();
+		aFollowLink = new plugin.HtmlViewer.src.actions.follow_link();
 	}
 
 	// }}}
@@ -1159,50 +1159,50 @@ public class InfoViewer extends JPanel implements HyperlinkListener, PropertyCha
 	private final static int ERROR = 3;
 
 	// icons
-	private final static ImageIcon ICON_ANIM = new ImageIcon(InfoViewer.class
+	private final static ImageIcon ICON_ANIM = new ImageIcon(HtmlViewer.class
 		.getResource("images/fish_anim.gif"));
 
-	private final static ImageIcon ICON_NOANIM = new ImageIcon(InfoViewer.class
+	private final static ImageIcon ICON_NOANIM = new ImageIcon(HtmlViewer.class
 		.getResource("images/fish.gif"));
 
-	private final static ImageIcon ICON_CHECK = new ImageIcon(InfoViewer.class
+	private final static ImageIcon ICON_CHECK = new ImageIcon(HtmlViewer.class
 		.getResource("images/checkmenu_check.gif"));
 
-	private final static ImageIcon ICON_NOCHECK = new ImageIcon(InfoViewer.class
+	private final static ImageIcon ICON_NOCHECK = new ImageIcon(HtmlViewer.class
 		.getResource("images/checkmenu_nocheck.gif"));
 
 	// infoviewer actions
-	private InfoViewerAction aOpenFile;
+	private HtmlViewerAction aOpenFile;
 
-	private InfoViewerAction aOpenBuffer;
+	private HtmlViewerAction aOpenBuffer;
 
-	private InfoViewerAction aEditURL;
+	private HtmlViewerAction aEditURL;
 
-	private InfoViewerAction aReload;
+	private HtmlViewerAction aReload;
 
-	private InfoViewerAction aClose;
+	private HtmlViewerAction aClose;
 
-	private InfoViewerAction aCopy;
+	private HtmlViewerAction aCopy;
 
-	private InfoViewerAction aSelectAll;
+	private HtmlViewerAction aSelectAll;
 
-	private InfoViewerAction aBack;
+	private HtmlViewerAction aBack;
 
-	private InfoViewerAction aOpenLocation;
+	private HtmlViewerAction aOpenLocation;
 
-	private InfoViewerAction aForward;
+	private HtmlViewerAction aForward;
 
-	private InfoViewerAction aHome;
+	private HtmlViewerAction aHome;
 
-	private InfoViewerAction aBookmarksAdd;
+	private HtmlViewerAction aBookmarksAdd;
 
-	private InfoViewerAction aBookmarksEdit;
+	private HtmlViewerAction aBookmarksEdit;
 
-	private InfoViewerAction aAbout;
+	private HtmlViewerAction aAbout;
 
 	protected ToggleSidebar aToggleSidebar;
 
-	private plugin.InfoViewer.infoviewer.actions.follow_link aFollowLink;
+	private plugin.HtmlViewer.src.actions.follow_link aFollowLink;
 
 	// gui elements
 	private JLabel status;

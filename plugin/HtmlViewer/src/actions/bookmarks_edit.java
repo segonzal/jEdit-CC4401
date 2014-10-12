@@ -1,10 +1,10 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
-import plugin.InfoViewer.infoviewer.*;
+import plugin.HtmlViewer.src.*;
 import java.awt.event.*;
 
 
-public class bookmarks_edit extends InfoViewerAction {
+public class bookmarks_edit extends HtmlViewerAction {
 
 
 	private static final long serialVersionUID = 8814698507050714830L;

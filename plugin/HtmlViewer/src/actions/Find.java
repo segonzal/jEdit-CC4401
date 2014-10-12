@@ -1,10 +1,10 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
-import plugin.InfoViewer.infoviewer.InfoViewer;
+import plugin.HtmlViewer.src.HtmlViewer;
 
 import java.awt.event.ActionEvent;
 
-public class Find extends InfoViewerAction
+public class Find extends HtmlViewerAction
 {
 	public Find() {
 		super("infoviewer.find");
@@ -14,7 +14,7 @@ public class Find extends InfoViewerAction
 	}
 	public void actionPerformed(ActionEvent e)
 	{
-        InfoViewer v = getViewer(e);
+		HtmlViewer v = getViewer(e);
         
 		getViewer(e).focusAddressBar();
 	}

@@ -1,4 +1,4 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
 import java.awt.Point;
 import java.awt.event.ActionEvent;
@@ -9,7 +9,7 @@ import javax.accessibility.AccessibleText;
 import javax.swing.JEditorPane;
 
 
-public class follow_link extends InfoViewerAction {
+public class follow_link extends HtmlViewerAction {
     
     /**
 	 * 

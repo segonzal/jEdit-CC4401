@@ -1,4 +1,4 @@
-package plugin.InfoViewer.infoviewer;
+package plugin.HtmlViewer.src;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -16,10 +16,10 @@ import org.gjt.sp.jedit.AbstractOptionPane;
 import org.gjt.sp.jedit.jEdit;
 
 
-public class InfoViewerOptionPane2 extends AbstractOptionPane implements ActionListener {
+public class HtmlViewerOptionPane2 extends AbstractOptionPane implements ActionListener {
 
 	private static final long serialVersionUID = 8785488835232627553L;
-	public InfoViewerOptionPane2() {
+	public HtmlViewerOptionPane2() {
         super("infoviewer.internalBrowser");
     }
 

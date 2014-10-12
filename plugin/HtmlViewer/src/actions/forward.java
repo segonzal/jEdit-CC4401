@@ -1,9 +1,9 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
 import java.awt.event.ActionEvent;
 
 
-public class forward extends InfoViewerAction {
+public class forward extends HtmlViewerAction {
     
 	private static final long serialVersionUID = 5148347240386631300L;
 

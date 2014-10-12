@@ -1,4 +1,4 @@
-package plugin.InfoViewer.infoviewer;
+package plugin.HtmlViewer.src;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;

@@ -1,9 +1,9 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
 import java.awt.event.ActionEvent;
 
 
-public class bookmarks_add extends InfoViewerAction {
+public class bookmarks_add extends HtmlViewerAction {
     
 
 	private static final long serialVersionUID = -2516940595041688219L;

@@ -1,9 +1,9 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
 import java.awt.event.ActionEvent;
 
 
-public class copy extends InfoViewerAction {
+public class copy extends HtmlViewerAction {
     
     /**
 	 * 

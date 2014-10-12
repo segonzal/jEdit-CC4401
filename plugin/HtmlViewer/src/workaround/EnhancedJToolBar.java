@@ -1,4 +1,4 @@
-package plugin.InfoViewer.infoviewer.workaround;
+package plugin.HtmlViewer.src.workaround;
 
 import java.awt.Insets;
 import javax.swing.Action;

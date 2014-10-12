@@ -1,4 +1,4 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import org.gjt.sp.jedit.View;
 
 
-public class close extends InfoViewerAction
+public class close extends HtmlViewerAction
 {
 
     /**

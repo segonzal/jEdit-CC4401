@@ -1,4 +1,4 @@
-package plugin.InfoViewer.infoviewer;
+package plugin.HtmlViewer.src;
 
 import java.util.Iterator;
 import java.util.Stack;

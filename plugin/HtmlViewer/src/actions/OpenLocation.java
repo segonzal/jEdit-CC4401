@@ -1,8 +1,8 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
 import java.awt.event.ActionEvent;
 
-public class OpenLocation extends InfoViewerAction
+public class OpenLocation extends HtmlViewerAction
 {
 	public OpenLocation() {
 		super("infoviewer.openlocation");

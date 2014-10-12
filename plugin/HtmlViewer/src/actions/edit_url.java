@@ -1,6 +1,6 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
-import plugin.InfoViewer.infoviewer.InfoViewer;
+import plugin.HtmlViewer.src.HtmlViewer;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import org.gjt.sp.jedit.jEdit;
@@ -8,7 +8,7 @@ import org.gjt.sp.jedit.GUIUtilities;
 import org.gjt.sp.jedit.View;
 
 
-public class edit_url extends InfoViewerAction
+public class edit_url extends HtmlViewerAction
 {
 
     /**
@@ -26,7 +26,7 @@ public class edit_url extends InfoViewerAction
     public void actionPerformed(ActionEvent evt)
     {
         View view = jEdit.getFirstView();
-        InfoViewer infoviewer = getViewer(evt);
+        HtmlViewer infoviewer = getViewer(evt);
         String url = infoviewer.getCurrentURL().getURL();
         Frame frame = getFrame(evt);
 

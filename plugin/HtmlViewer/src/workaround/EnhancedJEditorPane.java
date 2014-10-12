@@ -1,6 +1,6 @@
-package plugin.InfoViewer.infoviewer.workaround;
+package plugin.HtmlViewer.src.workaround;
 
-import plugin.InfoViewer.infoviewer.InfoViewer.ArrowKeyHandler;
+import plugin.HtmlViewer.src.HtmlViewer.ArrowKeyHandler;
 
 import java.awt.event.KeyEvent;
 import java.io.IOException;

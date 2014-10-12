@@ -1,9 +1,9 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
 import java.awt.event.ActionEvent;
 
 
-public class back extends InfoViewerAction {
+public class back extends HtmlViewerAction {
 
 	public back() {
         super("infoviewer.back");

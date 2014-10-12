@@ -1,9 +1,9 @@
-package plugin.InfoViewer.infoviewer.actions;
+package plugin.HtmlViewer.src.actions;
 
 import java.awt.event.ActionEvent;
 
 
-public class reload extends InfoViewerAction {
+public class reload extends HtmlViewerAction {
     
     /**
 	 * 

@@ -1,4 +1,4 @@
-package plugin.InfoViewer.infoviewer;
+package plugin.HtmlViewer.src;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -29,7 +29,7 @@ import org.gjt.sp.util.Log;
  * @author ezust
  * @version $Id: HelpInfoViewer.java 6723 2006-08-23 21:52:46Z ezust $
  */
-public class HelpInfoViewer extends InfoViewer implements HelpViewerInterface {
+public class HelpHtmlViewer extends HtmlViewer implements HelpViewerInterface {
 
 	public void toggleSideBar() {
 		showSideBar = aToggleSidebar.isSelected();
@@ -50,17 +50,17 @@ public class HelpInfoViewer extends InfoViewer implements HelpViewerInterface {
 		repaint();
 	}
 
-	public HelpInfoViewer() 
+	public HelpHtmlViewer() 
 	{
 		this(null, null, true);
 	}
 
-	public HelpInfoViewer(View view, String position) 
+	public HelpHtmlViewer(View view, String position) 
 	{
 		this(view, position, true);
 	}
 	
-	public HelpInfoViewer(View view, String position, boolean sidebar) 
+	public HelpHtmlViewer(View view, String position, boolean sidebar) 
 	{
 		super(view, position);
 		if (sidebar) setName("helpviewer");
