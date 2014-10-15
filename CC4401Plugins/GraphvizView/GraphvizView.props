@@ -2,7 +2,7 @@
 plugin.GraphvizView.GraphvizViewPlugin.name=GraphvizView
 plugin.GraphvizView.GraphvizViewPlugin.activate=startup
 plugin.GraphvizView.GraphvizViewPlugin.description=Visualizar Graphviz a medida que se escribe su c&oacute;digo
-plugin.GraphvizView.GraphvizViewPlugin.author=&Aacute;ngel Go&ntilde;i, Jos&eacute; Ojeda
+plugin.GraphvizView.GraphvizViewPlugin.author=Jos&eacute; Ojeda
 plugin.GraphvizView.GraphvizViewPlugin.version=0.0alpha
 plugin.GraphvizView.GraphvizViewPlugin.docs=info.html
 plugin.GraphvizView.GraphvizViewPlugin.usePluginHome=true
@@ -13,6 +13,12 @@ plugin.GraphvizView.GraphvizViewPlugin.option-pane=GraphvizView
 # Etiquetas de menú del plugin
 GraphvizView-mostrar.label=Mostrar GraphvizView
 GraphvizView-ocultar.label=Ocultar GraphvizView
+
+# Panel de configuración del plugin
+options.GraphvizView.label=GraphvizView
+options.GraphvizView.code=new GraphvizView.Opciones();
+labels.GraphvizView.lado=Posici&oacute;n de visor
+options.GraphvizView.lado=IZQ
 
 # Ítemes del menú del plugin
 plugin.GraphvizView.GraphvizViewPlugin.menu=GraphvizView-mostrar GraphvizView-ocultar
