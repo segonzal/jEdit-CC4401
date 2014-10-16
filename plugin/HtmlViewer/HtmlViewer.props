@@ -1,44 +1,44 @@
 # Plugin properties
-plugin.htmlviewer.InfoViewerPlugin.name=Info Viewer
-plugin.htmlviewer.InfoViewerPlugin.activate=startup
+plugin.htmlviewer.HtmlViewerPlugin.name=Info Viewer
+plugin.htmlviewer.HtmlViewerPlugin.activate=startup
 
-plugin.htmlviewer.InfoViewerPlugin.author=Dirk Moebius, Alan Ezust
-plugin.htmlviewer.InfoViewerPlugin.version=1.6
-plugin.htmlviewer.InfoViewerPlugin.docs=index.html
-plugin.htmlviewer.InfoViewerPlugin.description=A Swing-based web browser, which can also provide a replacement for HelpViewer.
-plugin.htmlviewer.InfoViewerPlugin.depend.0=jedit 04.03.99.00
-plugin.htmlviewer.InfoViewerPlugin.depend.1=jdk 1.5
-#plugin.htmlviewer.InfoViewerPlugin.depend.2=plugin lucene.LucenePlugin 2.0
+plugin.htmlviewer.HtmlViewerPlugin.author=Dirk Moebius, Alan Ezust
+plugin.htmlviewer.HtmlViewerPlugin.version=1.6
+plugin.htmlviewer.HtmlViewerPlugin.docs=index.html
+plugin.htmlviewer.HtmlViewerPlugin.description=A Swing-based web browser, which can also provide a replacement for HelpViewer.
+plugin.htmlviewer.HtmlViewerPlugin.depend.0=jedit 04.03.99.00
+plugin.htmlviewer.HtmlViewerPlugin.depend.1=jdk 1.5
+#plugin.htmlviewer.HtmlViewerPlugin.depend.2=plugin lucene.LucenePlugin 2.0
 
 # Two option panes
-plugin.htmlviewer.InfoViewerPlugin.option-group=chooseBrowser internalBrowser
+plugin.htmlviewer.HtmlViewerPlugin.option-group=chooseBrowser internalBrowser
 
 # first optionpane
 options.chooseBrowser.label=Choose Browser
-options.chooseBrowser.code=new htmlviewer.InfoViewerOptionPane();
+options.chooseBrowser.code=new htmlviewer.HtmlViewerOptionPane();
 
 # second optionpane 
 options.internalBrowser.label=Internal Browser
-options.internalBrowser.code=new htmlviewer.InfoViewerOptionPane2();
+options.internalBrowser.code=new htmlviewer.HtmlViewerOptionPane2();
 
 # plugin menu
-plugin.htmlviewer.InfoViewerPlugin.menu = htmlviewer helpviewer - htmlviewer.open-buffer htmlviewer.open-sel
+plugin.htmlviewer.HtmlViewerPlugin.menu = htmlviewer helpviewer - htmlviewer.open-buffer htmlviewer.open-sel
 
 # Plugin menu properties 
-htmlviewer-toggle.label=Toggle InfoViewer
+htmlviewer-toggle.label=Toggle HtmlViewer
 helpviewer-toggle.label=Toggle HelpViewer
-htmlviewer.menu.label=InfoViewer
-htmlviewer.label=InfoViewer
+htmlviewer.menu.label=HtmlViewer
+htmlviewer.label=HtmlViewer
 helpviewer.label=HelpViewer
 htmlviewer.open-buffer.label=Open current buffer with browser
 htmlviewer.open-sel.label=Open selected URL with browser
 
 # Default option pane properties
 htmlviewer.browsertype=internal
-htmlviewer.class=infoviewer.HelpInfoViewer
+htmlviewer.class=infoviewer.HelpHtmlViewer
 htmlviewer.method=showInternalInfoViewer
 htmlviewer.otherBrowser=netscape -remote openURL($u) -raise
-htmlviewer.homepage=jeditresource:/InfoViewer.jar!/index.html
+htmlviewer.homepage=jeditresource:/HtmlViewer.jar!/index.html
 htmlviewer.appearance.floating.showMenu=true
 htmlviewer.appearance.floating.showToolbar=true
 htmlviewer.appearance.floating.showAddressbar=true
@@ -70,13 +70,13 @@ htmlviewer.menu.bmarks=Bookmarks
 htmlviewer.menu.bmarks.mnemonic=B
 htmlviewer.menu.help=Help
 htmlviewer.menu.help.mnemonic=H
-htmlviewer.menu.help.readme=InfoViewer UserGuide
+htmlviewer.menu.help.readme=HtmlViewer UserGuide
 htmlviewer.menu.help.readme.mnemonic=I
-htmlviewer.menu.help.readme.url=jeditresource:/InfoViewer.jar!/index.html
+htmlviewer.menu.help.readme.url=jeditresource:/HtmlViewer.jar!/index.html
 
 
 # Misc properties
-htmlviewer.title=InfoViewer
+htmlviewer.title=HtmlViewer
 htmlviewer.notitle=(no title)
 htmlviewer.greetstring={0} v{1}
 htmlviewer.label.gotoURL=Go to:\ 
@@ -117,7 +117,7 @@ htmlviewer.reload.shortcut=F5
 
 htmlviewer.close=Close
 htmlviewer.close.icon=BrokenImage.png
-htmlviewer.close.description=Close InfoViewer
+htmlviewer.close.description=Close HtmlViewer
 htmlviewer.close.shortcut=C+q
 
 htmlviewer.copy=Copy
@@ -160,7 +160,7 @@ htmlviewer.bookmarks_edit=Manage Bookmarks...
 htmlviewer.bookmarks_edit.shortcut=C+e
 htmlviewer.bookmarks_edit.description=Manage bookmarks
 
-htmlviewer.about=About InfoViewer...
+htmlviewer.about=About HtmlViewer...
 htmlviewer.about.mnemonic=A
 htmlviewer.about.shortcut=F1
 
@@ -170,10 +170,10 @@ htmlviewer.follow_link.mnemonic=L
 htmlviewer.follow_link.description=Follow the link under the pointer
 
 # Option pane properties
-options.htmlviewer.label=InfoViewer
+options.htmlviewer.label=HtmlViewer
 options.htmlviewer.chooseBrowser.label=Choose Browser
 options.htmlviewer.internalBrowser.label=Internal Browser
-options.htmlviewer.useforhelp.label=Use internal InfoViewer instead of HelpViewer
+options.htmlviewer.useforhelp.label=Use internal HtmlViewer instead of HelpViewer
 options.htmlviewer.browser.label=Choose Preferred Browser:
 options.htmlviewer.browser.internal=Internal (InfoViewer)
 options.htmlviewer.browser.class=Class in classpath
