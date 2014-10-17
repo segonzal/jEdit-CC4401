@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE DOCKABLES SYSTEM "dockables.dtd">
+
+<DOCKABLES>
+
+	<DOCKABLE NAME="helpviewer">
+		new htmlviewer.HelpHtmlViewer(view, position);
+	</DOCKABLE>
+
+	<DOCKABLE NAME="htmlviewer">
+		new htmlviewer.HelpHtmlViewer(view, position, false);
+	</DOCKABLE>
+
+</DOCKABLES>
