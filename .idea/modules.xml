@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jEdit.iml" filepath="$PROJECT_DIR$/jEdit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/navPlugin/navPlugin.iml" filepath="$PROJECT_DIR$/navPlugin/navPlugin.iml" />
     </modules>
   </component>
 </project>
