@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 
 import org.gjt.sp.jedit.EditPane;
 import org.gjt.sp.jedit.textarea.JEditTextArea;
+import org.gjt.sp.jedit.jEdit;
 
 public class GraphvizView extends JPanel
 {
@@ -20,6 +21,7 @@ public class GraphvizView extends JPanel
 	private final EditPane editPane;
 	private Component child;
 	private final JSplitPane splitter;
+  private final String LADO_PROP = "options.GraphvizView.lado";
 	
 	public GraphvizView(EditPane editPane)
 	{
@@ -47,10 +49,20 @@ public class GraphvizView extends JPanel
 
 	private void setSplitterComponents()
 	{
-		// Colocar en Spliiter, el contenedor del EditPane y el panel
+		// Colocar en Spliter, el contenedor del EditPane y el panel
 		// asociado al plugin (por ahora, sólo un "Hola mundo").
-		splitter.setRightComponent(new JLabel("¡Hola mundo!"));
-		splitter.setLeftComponent(child);
+		// Averiguar primero en qué lado debe mostrarse, y luego insertar objetos.
+		String lado = jEdit.getProperty(LADO_PROP);
+		if(lado.equals("DER"))
+		{
+			splitter.setRightComponent(new JLabel("¡Hola mundo!"));
+			splitter.setLeftComponent(child);
+		}
+		else
+		{
+			splitter.setLeftComponent(new JLabel("¡Hola mundo!"));
+			splitter.setRightComponent(child);
+		}
 	}
 	
 	public void propertiesChanged()
