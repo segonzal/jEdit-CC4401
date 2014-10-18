@@ -13,9 +13,13 @@ public class Opciones extends AbstractOptionPane
 {
   private static final String LADO_LABEL = "labels.GraphvizView.lado";
   private static final String LADO_PROP = "options.GraphvizView.lado";
+  private static final String RUTA_DOT_LABEL = "labels.GraphvizView.ruta_dot";
+  private static final String RUTA_DOT_PROP = "options.GraphvizView.ruta_dot";
 
   private JComboBox jcb_lado;
   private JLabel jlb_lado;
+  private JTextField jtf_ruta_dot;
+  private JLabel jlb_ruta_dot;
 
   public static final String IZQ = "IZQ";
   public static final String DER = "DER";
@@ -32,9 +36,12 @@ public class Opciones extends AbstractOptionPane
     jcb_lado = new JComboBox();
     jcb_lado.addItem(IZQ);
     jcb_lado.addItem(DER);
-    jcb_lado.setSelectedItem(getLadoProp());
+    jcb_lado.setSelectedItem(jEdit.getProperty(LADO_PROP));
     jlb_lado = new JLabel(jEdit.getProperty(LADO_LABEL));
     addComponent(jlb_lado, jcb_lado);
+    jtf_ruta_dot = new JTextField(jEdit.getProperty(RUTA_DOT_PROP));
+    jlb_ruta_dot = new JLabel(jEdit.getProperty(RUTA_DOT_LABEL));
+    addComponent(jlb_ruta_dot, jtf_ruta_dot);
   }
 
   @Override
@@ -42,11 +49,6 @@ public class Opciones extends AbstractOptionPane
   {
     // Indicar qué propiedades deben guardarse.
     jEdit.setProperty(LADO_PROP, jcb_lado.getSelectedItem().toString());
-  }
-
-  // Métodos estáticos para recuperar propiedades.
-  public static String getLadoProp()
-  {
-    return jEdit.getProperty(LADO_PROP);
+    jEdit.setProperty(RUTA_DOT_PROP, jtf_ruta_dot.getText());
   }
 }

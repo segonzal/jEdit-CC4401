@@ -19,6 +19,8 @@ options.GraphvizView.label=GraphvizView
 options.GraphvizView.code=new GraphvizView.Opciones();
 labels.GraphvizView.lado=Posici&oacute;n de visor
 options.GraphvizView.lado=IZQ
+labels.GraphvizView.ruta_dot=Ruta de comando 'dot'
+options.GraphvizView.ruta_dot=/usr/bin/dot
 
 # Ítemes del menú del plugin
 plugin.GraphvizView.GraphvizViewPlugin.menu=GraphvizView-mostrar GraphvizView-ocultar
