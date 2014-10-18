@@ -19,25 +19,24 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+import org.gjt.sp.jedit.AbstractOptionPane;
+
 /**
  * Created by luism on 18-10-14.
  */
-import org.gjt.sp.jedit.*;
-public class NavPlugin extends EditPlugin
+public class Options extends AbstractOptionPane
 {
-	public static final String NAME = "nav";
-	@Override
-	public void start(){
-
+	public Options(){
+		super("Nav");
 	}
 	@Override
-	public void stop(){
+	public void _init()
+	{
 
 	}
-	public static void show(EditPane pane){
-
-	}
-	public static void hide(EditPane pane){
+	@Override
+	public void _save()
+	{
 
 	}
 }
