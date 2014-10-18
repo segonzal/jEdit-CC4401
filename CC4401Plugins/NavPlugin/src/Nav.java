@@ -19,16 +19,48 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.GridLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 
 import org.gjt.sp.jedit.EditPane;
+import org.gjt.sp.jedit.textarea.JEditTextArea;
 
 /**
  * Created by luism on 18-10-14.
  */
 public class Nav extends JPanel
 {
-	public Nav(EditPane pane){
+	private final EditPane editPane;
+	private Component child;
+	private final JSplitPane splitter;
+	public Nav(EditPane editPane){
+		setLayout(new GridLayout(1, 1));
+		this.editPane = editPane;
+		JEditTextArea textArea = editPane.getTextArea();
+		Container c = textArea.getParent();
+		child = textArea;
+		while (! (c instanceof EditPane))
+		{
+			child = c;
+			c = c.getParent();
+		}
+		splitter = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		setSplitterComponents();
+		add(splitter);
+	}
+	private void setSplitterComponents()
+	{
+		splitter.setRightComponent(new JLabel("¡Hola mundo!"));
+		splitter.setLeftComponent(child);
+	}
+	public void start(){
+
+	}
+	public void stop(boolean restore){
 
 	}
 }
