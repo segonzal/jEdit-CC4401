@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE ACTIONS SYSTEM "actions.dtd">
+<ACTIONS>
+	<ACTION NAME="nav-show" NO_REPEAT="TRUE">
+		<CODE>
+			nav.NavPlugin.show(editPane);
+		</CODE>
+	</ACTION>
+	<ACTION NAME="nav-hide" NO_REPEAT="TRUE">
+		<CODE>
+			nav.NavPlugin.hide(editPane);
+		</CODE>
+	</ACTION>
+</ACTIONS>
