@@ -1,31 +1,18 @@
-plugin.nav.NavPlugin.name=Nav
-plugin.nav.NavPlugin.activate=startup
-plugin.nav.NavPlugin.description=Show nav for the text area
-plugin.nav.NavPlugin.author= Luis Martinez Nico Delgado
-plugin.nav.NavPlugin.version=1.0
-plugin.nav.NavPlugin.usePluginHome=true
-plugin.nav.NavPlugin.depend.0=jdk 1.6
-plugin.nav.NavPlugin.depend.1=jedit 04.05.99.00
-
-nav-show.label=Show navPlugin of current edit pane
-nav-hide.label=Hide navPlugin of current edit pane
-
-# menu items
-plugin.nav.NavPlugin.menu=nav-show nav-hide
-
-# options
-plugin.nav.NavPlugin.option-pane=nav
-options.nav.label=Nav
-options.nav.code=new nav.Options();
-
-# labels
-labels.nav.fontFamily=Nav font family:
-labels.nav.fontSize=Nav font size:
-labels.nav.auto=Automatically add a nav to all edit panes
-labels.nav.side=Show nav on this side of the edit pane:
-labels.nav.scroll=Allow independent scrolling of nav
-labels.nav.fold=Enable folding in nav
-labels.nav.time=Fold state update frequency (in milliseconds):
-labels.nav.squarecolor=Square color label:
-labels.nav.fillsquare=Fill the square:
-labels.nav.alpha=Square transparency:
++# Propiedades de plugin
++plugin.Nav.NavPlugin.name=Nav
++plugin.Nav.NavPlugin.activate=startup
++plugin.Nav.NavPlugin.description=Muestra un visualizador global de codigo
++plugin.Nav.NavPlugin.author=Nicolas Delgado Luis Martinez
++plugin.Nav.NavPlugin.version=0.0alpha
++plugin.Nav.NavPlugin.docs=info.html
++plugin.Nav.NavPlugin.usePluginHome=true
++plugin.Nav.NavPlugin.depend.0=jdk 1.7
++plugin.Nav.NavPlugin.depend.1=jedit 05.02.00.00
++plugin.Nav.NavPlugin.option-pane=Nav
++
++# Etiquetas de menú del plugin
++Nav-mostrar.label=Mostrar Nav
++Nav-ocultar.label=Ocultar Nav
++
++# Ítemes del menú del plugin
++plugin.Nav.NavPlugin.menu=Nav-mostrar Nav-ocultar

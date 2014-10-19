@@ -1,3 +1,4 @@
+package nav;
 /*
  * jEdit - Programmer's Text Editor
  * :tabSize=8:indentSize=8:noTabs=false:
@@ -18,7 +19,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -57,10 +57,27 @@ public class Nav extends JPanel
 		splitter.setRightComponent(new JLabel("¡Hola mundo!"));
 		splitter.setLeftComponent(child);
 	}
-	public void start(){
 
+	public void propertiesChanged()
+	{
+		setSplitterComponents();
 	}
-	public void stop(boolean restore){
 
+	public void start()
+	{
+		editPane.add(this);
+		editPane.validate();
+	}
+
+	public void stop(boolean restore)
+	{
+		editPane.remove(this);
+		if (restore)
+		{
+			editPane.add(child);
+			editPane.validate();
+		}
+		remove(splitter);
+		splitter.remove(child);
 	}
 }
