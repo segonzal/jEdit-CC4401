@@ -37,11 +37,13 @@ public class Nav extends JPanel
 	private final EditPane editPane;
 	private Component child;
 	private final JSplitPane splitter;
+	private NavTextArea nav;
 	public Nav(EditPane editPane){
 		setLayout(new GridLayout(1, 1));
 		this.editPane = editPane;
 		JEditTextArea textArea = editPane.getTextArea();
 		Container c = textArea.getParent();
+		nav=new NavTextArea(textArea);
 		child = textArea;
 		while (! (c instanceof EditPane))
 		{
@@ -54,7 +56,7 @@ public class Nav extends JPanel
 	}
 	private void setSplitterComponents()
 	{
-		splitter.setRightComponent(new JLabel("¡Hola mundo!"));
+		splitter.setRightComponent(nav);
 		splitter.setLeftComponent(child);
 	}
 

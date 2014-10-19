@@ -1,0 +1,18 @@
++# Propiedades de plugin
+plugin.Nav.NavPlugin.name=Nav
+plugin.Nav.NavPlugin.activate=startup
+plugin.Nav.NavPlugin.description=Muestra un visualizador global de codigo
+plugin.Nav.NavPlugin.author=Nicolas Delgado Luis Martinez
+plugin.Nav.NavPlugin.version=0.0alpha
+plugin.Nav.NavPlugin.docs=info.html
+plugin.Nav.NavPlugin.usePluginHome=true
+plugin.Nav.NavPlugin.depend.0=jdk 1.7
+plugin.Nav.NavPlugin.depend.1=jedit 05.02.00.00
+plugin.Nav.NavPlugin.option-pane=Nav
+
+# Etiquetas de menú del plugin
+Nav-mostrar.label=Mostrar Nav
+Nav-ocultar.label=Ocultar Nav
+
+# Ítemes del menú del plugin
+plugin.Nav.NavPlugin.menu=Nav-mostrar Nav-ocultar
