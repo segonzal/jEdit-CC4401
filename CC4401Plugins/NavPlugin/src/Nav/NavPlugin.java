@@ -1,4 +1,4 @@
-package nav;
+package Nav;
 /*
  * jEdit - Programmer's Text Editor
  * :tabSize=8:indentSize=8:noTabs=false:

@@ -3,7 +3,7 @@
 <project name="Nav" default="dist" basedir=".">
 
 	<description>
-		Éste es un build.xml para ant, para construir plugin nav.
+		Éste es un build.xml para ant, para construir plugin Nav.
 	</description>
 
 	<property file="build.properties"/>
