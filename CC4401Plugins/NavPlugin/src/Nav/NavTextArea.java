@@ -24,12 +24,17 @@ package Nav;
 import java.awt.Font;
 
 import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
 import java.awt.font.TextAttribute;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,10 +60,54 @@ import org.gjt.sp.util.Log;
  */
 public class NavTextArea extends JEditEmbeddedTextArea
 {
+	private JScrollBar scrollBar;
 	private JEditTextArea textArea;
 	public NavTextArea(JEditTextArea textArea){
+		try{
+			System.setOut(new PrintStream(new FileOutputStream("salida_normal.txt")));
+		}catch (IOException e){
+			throw new RuntimeException("Error Fatal");
+		}
 		this.textArea = textArea;
-		getBuffer().setProperty("folding","explicit");
+		getBuffer().setProperty("folding", "explicit");
 		setBuffer(textArea.getBuffer());
+		getPainter().setCursor(
+			Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		getPainter().setWrapGuidePainted(false);
+		getPainter().setAntiAlias(new AntiAlias(0));
+		resizeFont();
+		addFocusListener(new FocusListener()
+		{
+
+			@Override
+			public void focusLost(FocusEvent e)
+			{
+				setEnabled(true);
+			}
+
+			@Override
+			public void focusGained(FocusEvent e)
+			{
+				setEnabled(false);
+			}
+		});
+	}
+	private void resizeFont(){
+		TextAreaPainter painter = getPainter();
+		Font f = deriveFont(painter.getFont());
+		painter.setFont(f);
+		SyntaxStyle [] styles = painter.getStyles();
+		updateStyles(styles);
+	}
+	private static Font deriveFont(Font f) {
+		return new Font("Verdana", Font.BOLD, 9);
+	}
+	private static void updateStyles(SyntaxStyle[] styles) {
+		for (int i = 0; i < styles.length; i++) {
+			SyntaxStyle style = styles[i];
+			styles[i] = new SyntaxStyle(style.getForegroundColor(),
+						    style.getBackgroundColor(),
+						    deriveFont(style.getFont()));
+		}
 	}
 }

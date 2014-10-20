@@ -22,7 +22,9 @@ package Nav;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridLayout;
-import javax.swing.JLabel;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
