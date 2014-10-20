@@ -1,0 +1,37 @@
+# jEdit only needs to load the plugin the first time the user accesses it
+# the presence of this property also tells jEdit the plugin is using the new API
+plugin.UMLViewerPlugin.activate=defer
+
+# Even if you don't store additional files, this is a good idea to set:
+plugin.UMLViewerPlugin.usePluginHome=true
+
+# Required for all plugins:
+plugin.UMLViewerPlugin.name=UMLViewer
+plugin.UMLViewerPlugin.author=Américo Jerez, Matías Rodrígez
+
+# version number == jEdit version number
+plugin.UMLViewerPlugin.version=0.0preAlpha
+
+# online help
+plugin.UMLViewerPlugin.docs=index.html
+
+# we only have one dependency, jEdit 5.2pre1
+plugin.UMLViewer.depend.0=jdk 1.7
+# See jEdit.getBuild() to understand version numbering scheme. 
+plugin.UMLViewer.depend.1=jedit 05.02.00.00
+
+#plugin.QuickNotepadPlugin.description=A demo jEdit plugin that provides a notepad dockable.
+#plugin.QuickNotepadPlugin.longdescription=description.html
+
+# action labels
+# Dockable label
+umlviewer.label=UMLViewer
+# Additional strings extracted from the plugin java source
+umlviewer.generate-uml.label=Generate UML
+
+# application menu items
+umlviewer.menu.label=UMLViewer
+umlviewer.menu=umlviewer - umlviewer.generate-uml
+
+# Setting not defined but supplied for completeness
+options.umlviewer.filepath=

@@ -1,0 +1,9 @@
+<!DOCTYPE ACTIONS SYSTEM "actions.dtd">
+<ACTIONS>
+	<ACTION NAME="umlviewer.generate-uml">
+		<CODE>
+			wm.addDockableWindow(UMLViewerPlugin.NAME);
+			wm.getDockableWindow(UMLViewerPlugin.NAME).generateUML();
+		</CODE>
+	</ACTION>
+</ACTIONS>
