@@ -3,7 +3,9 @@
 
 package GraphvizView;
 
-import org.gjt.sp.jedit.EditPlugin;
+import org.gjt.sp.jedit.EBMessage;
+import org.gjt.sp.jedit.msg.PropertiesChanged;
+import org.gjt.sp.jedit.EBPlugin;
 import org.gjt.sp.jedit.EditPane;
 import org.gjt.sp.jedit.jEdit;
 import org.gjt.sp.jedit.visitors.JEditVisitorAdapter;
@@ -15,11 +17,31 @@ import java.util.Set;
 
 import java.awt.EventQueue;
 
-public class GraphvizViewPlugin extends EditPlugin
+public class GraphvizViewPlugin extends EBPlugin
+// No heredar directamente desde EditPlugin.
+// No permite hacer handleMessage.
 {
 	// Map de todas las instancias de visores de Graphviz.
 	// Se almacenan pares (EditPane de jEdit y visor de GraphvizView).
 	private static Map<EditPane, GraphvizView> views;
+	
+	// Necesario para cuando se cambia posición de visualizador, en opciones.
+	// Cuando se hace un cambio, éste es notificado a través del
+	// "EditBus" (EB) de jEdit.
+	@Override
+	public void handleMessage(EBMessage message)
+	{
+		// Identificar qué tipo de mensaje es.
+		if (message instanceof PropertiesChanged)
+		{
+			// Si cambiaron las opciones del plugin, actualizar
+			// los visores.
+			for (GraphvizView view: views.values())
+			{
+				view.propertiesChanged();
+			}
+		}
+	}
 
 	private static void hide(EditPane editPane, boolean restore)
 	{
