@@ -6,14 +6,21 @@ package GraphvizView;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.Dimension;
 
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import org.gjt.sp.jedit.EditPane;
 import org.gjt.sp.jedit.textarea.JEditTextArea;
 import org.gjt.sp.jedit.jEdit;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+
 
 public class GraphvizView extends JPanel
 {
@@ -21,30 +28,31 @@ public class GraphvizView extends JPanel
 	private final EditPane editPane;
 	private Component child;
 	private final JSplitPane splitter;
-  private final String LADO_PROP = "options.GraphvizView.lado";
+	private final String LADO_PROP = "options.GraphvizView.lado";
+	private JPanel pnl = new JPanel();
 	
 	public GraphvizView(EditPane editPane)
 	{
 		// GraphvizView extiende a JPanel. Se establece un layout de una
 		// sola celda.
-		setLayout(new GridLayout(1, 1));
+		this.setLayout(new GridLayout(1, 1));
 		this.editPane = editPane;
 		JEditTextArea textArea = editPane.getTextArea();
 		Container c = textArea.getParent();
 		// Tomar puntero a textArea del EditPane.
-		child = textArea;
+		this.child = textArea;
 		// Conseguir referencia su contenedor.
 		while (! (c instanceof EditPane))
 		{
-			child = c;
+			this.child = c;
 			c = c.getParent();
 		}
 		// Crear un Splitter.
-		splitter = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		this.splitter = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		// Colocar elementos en su lugar, dentro de Splitter.
-		setSplitterComponents();
+		this.setSplitterComponents();
 		// Agregar Splitter.
-		add(splitter);
+		this.add(splitter);
 	}
 
 	private void setSplitterComponents()
@@ -53,15 +61,34 @@ public class GraphvizView extends JPanel
 		// asociado al plugin (por ahora, sólo un "Hola mundo").
 		// Averiguar primero en qué lado debe mostrarse, y luego insertar objetos.
 		String lado = jEdit.getProperty(LADO_PROP);
+		
+		this.pnl.setLayout(new GridLayout(2, 1));
+		
+		// Establecer tamaño mínimo de botón.
+		Dimension minSize = new Dimension(100, 0);
+		final JButton btn = new JButton();
+		final JLabel lbl = new JLabel();
+		this.pnl.setMinimumSize(minSize);	
+		this.pnl.add(lbl);
+		this.pnl.add(btn);
+		final JEditTextArea txt = editPane.getTextArea();
+		btn.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				lbl.setText(txt.getText());
+			}
+		});
+		
 		if(lado.equals("DER"))
 		{
-			splitter.setRightComponent(new JLabel("¡Hola mundo!"));
-			splitter.setLeftComponent(child);
+			splitter.setRightComponent(this.pnl);
+			splitter.setLeftComponent(this.child);
 		}
 		else
 		{
-			splitter.setLeftComponent(new JLabel("¡Hola mundo!"));
-			splitter.setRightComponent(child);
+			splitter.setLeftComponent(this.pnl);
+			splitter.setRightComponent(this.child);
 		}
 	}
 	
