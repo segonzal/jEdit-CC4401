@@ -1,32 +1,30 @@
 # jEdit only needs to load the plugin the first time the user accesses it
 # the presence of this property also tells jEdit the plugin is using the new API
-plugin.CC4401Plugins.UMLViewer.UMLViewerPlugin.activate=defer
+plugin.umlviewer.UMLViewerPlugin.activate=defer
 
 # Even if you don't store additional files, this is a good idea to set:
-plugin.CC4401Plugins.UMLViewer.UMLViewerPlugin.usePluginHome=true
+plugin.umlviewer.UMLViewerPlugin.usePluginHome=true
 
 # Required for all plugins:
-plugin.CC4401Plugins.UMLViewer.UMLViewerPlugin.name=UMLViewer
-plugin.CC4401Plugins.UMLViewer.UMLViewerPlugin.author=Américo Jerez, Matías Rodrígez
+plugin.umlviewer.UMLViewerPlugin.name=UMLViewer
+plugin.umlviewer.UMLViewerPlugin.author=Américo Jerez, Matías Rodrígez
 
 # version number == jEdit version number
-plugin.CC4401Plugins.UMLViewer.UMLViewerPlugin.version=0.0preAlpha
-
-# online help
-plugin.CC4401Plugins.UMLViewer.UMLViewerPlugin.docs=index.html
+plugin.umlviewer.UMLViewerPlugin.version=0.0preAlpha
 
 # we only have one dependency, jEdit 5.2pre1
-plugin.CC4401Plugins.UMLViewer.UMLViewerPlugin.depend.0=jdk 1.7
+plugin.umlviewer.UMLViewerPlugin.depend.0=jdk 1.7
 # See jEdit.getBuild() to understand version numbering scheme. 
-plugin.CC4401Plugins.UMLViewer.UMLViewerPlugin.depend.1=jedit 05.02.00.00
+plugin.umlviewer.UMLViewerPlugin.depend.1=jedit 05.02.00.00
 
-plugin.CC4401Plugins.UMLViewer.UMLViewerPlugin.description=Versión 0.0alpha de UMLViewer, intentando hacer que aparezcan cosas.
-#plugin.QuickNotepadPlugin.longdescription=description.html
+plugin.umlviewer.UMLViewerPlugin.description=Versión 0.0alpha de UMLViewer, intentando hacer que aparezcan cosas.
 
-plugin.CC4401Plugins.UMLViewer.UMLViewerPlugin.menu=umlviewer \
-- \
-umlviewer.generate-uml
+plugin.umlviewer.UMLViewerPlugin.menu=umlviewer \
+	- \
+	umlviewer.generate-uml
 
 umlviewer.label=UMLViewer
 
 umlviewer.generate-uml.label=Generar UML
+
+umlviewer.title=UMLViewer

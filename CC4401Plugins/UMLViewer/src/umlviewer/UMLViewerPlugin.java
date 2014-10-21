@@ -1,7 +1,12 @@
-package CC4401Plugins.UMLViewer;
+package umlviewer;
+
 
 import org.gjt.sp.jedit.EditPlugin;
 
 public class UMLViewerPlugin extends EditPlugin{
 	public static final String NAME = "umlviewer";
+	
+	static public void generateUML(){
+		return;
+	}
 }

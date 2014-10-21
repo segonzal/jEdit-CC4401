@@ -4,6 +4,6 @@
 
 <DOCKABLES>
 	<DOCKABLE NAME="umlviewer">
-		new UMLViewer(view, position);
+		new umlviewer.UMLViewer(view, position);
 	</DOCKABLE>
 </DOCKABLES>

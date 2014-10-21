@@ -2,8 +2,8 @@
 <ACTIONS>
 	<ACTION NAME="umlviewer.generate-uml">
 		<CODE>
-			wm.addDockableWindow(UMLViewerPlugin.NAME);
-			wm.getDockableWindow(UMLViewerPlugin.NAME).generateUML();
+			wm.addDockableWindow(umlviewer.UMLViewerPlugin.NAME);
+			wm.getDockableWindow(umlviewer.UMLViewerPlugin.NAME).generateUML();
 		</CODE>
 	</ACTION>
 </ACTIONS>
