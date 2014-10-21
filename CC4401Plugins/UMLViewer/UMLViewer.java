@@ -1,4 +1,4 @@
-package CC4401Plugins.UMLViewer.src.umlviewer;
+package CC4401Plugins.UMLViewer;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -14,6 +14,8 @@ public class UMLViewer extends JPanel{
 // private members
 private View view;
 private boolean floating;
+public static final String title = "UMLViewer";
+public static final String label = "UMLViewer";
 
 private UMLViewerImgArea imgArea;
 
@@ -24,8 +26,9 @@ private UMLViewerImgArea imgArea;
 		this.view=view;
 		this.floating = position.equals(DockableWindowManager.FLOATING);
 		
-		if(floating)
+		if(floating){
 			this.setPreferredSize(new Dimension(500,250));
+		}
 		
 		imgArea = new UMLViewerImgArea();
 		JScrollPane pane = new JScrollPane(imgArea);

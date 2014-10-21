@@ -1,4 +1,4 @@
-package CC4401Plugins.UMLViewer.src.umlviewer;
+package CC4401Plugins.UMLViewer;
 
 import javax.swing.JTextArea;
 

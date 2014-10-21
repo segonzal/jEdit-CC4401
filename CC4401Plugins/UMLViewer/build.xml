@@ -1,17 +1,5 @@
- <!--<project name="UMLViewer">
-        <target name="init">
-                <mkdir dir="classes" />
-                <mkdir dir="build" />
-        </target>
-        <target name="compile" depends="init" >
-                <javac srcdir="src" destdir="classes"/>
-        </target>
-        <target name="build" depends="compile">
-                <jar destfile="build/UMLViewer.jar" basedir="classes" />
-        </target>
-        
-</project> default="dist" -->
-<project name="GraphvizView" basedir=".">
+ <!--Build malo-->
+<project name="UMLViewer" basedir=".">
   
   <description>
     Éste es un build.xml para ant, para construir plugin UMLViewer.
@@ -21,7 +9,7 @@
   <property file="../build.properties"/>
   <property name="dist.target" value="build" />
   <property name="src.dir" location="src"/>
-<!--  <import file="${build.support}/plugin-build.xml"/> -->
+<!---<import file="plugin-build.xml"/>-->
   
   <selector id="packageFiles">
     <or>
