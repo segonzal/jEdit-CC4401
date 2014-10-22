@@ -5,18 +5,10 @@ import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.List;
 
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-
-
-
-
-
-
-
 
 import org.gjt.sp.jedit.GUIUtilities;
 import org.gjt.sp.jedit.View;
@@ -26,13 +18,8 @@ import org.gjt.sp.jedit.gui.DockableWindowManager;
 
 public class UMLViewer extends JPanel{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 9058963628784818159L;
-	@SuppressWarnings("unused")
 	private View view;
-	@SuppressWarnings("unused")
 	private boolean floating;
 	public static final String title = "UMLViewer";
 	public static final String label = "UMLViewer";
@@ -56,7 +43,7 @@ public class UMLViewer extends JPanel{
 	
 	public void generateUML(){
 		String[] directory = GUIUtilities.showVFSFileDialog(this.view, null, VFSBrowser.CHOOSE_DIRECTORY_DIALOG, false);
-		String[] files = Utilities.getFnD(new File(directory[0]));
+		List<String> files = Utilities.getFnD(new File(directory[0]));
 		this.textArea.setText("");
 		//abrir archivos
 		File archivo = null;
@@ -92,9 +79,6 @@ public class UMLViewer extends JPanel{
 			}
 			this.textArea.append("----------------------------------------\n");
 		}
-		/*for(String file : files){
-			this.textArea.append(file.concat("\n"));
-		}*/
 		
 		return;
 	}

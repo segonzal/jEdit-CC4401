@@ -11,6 +11,7 @@ Para instalar el Plugin se debe copiar el .jar generado y pegarlo en la carpeta 
 -RECHAZADO-Cambiar las opciones del menu Plugins de la Barra Superior al menu Plugins de la barra de File Browser.
 	Al final se crea otra instancia de File Browser para seleccionar la carpeta.
 -HECHO-Implementar clase que recorra el fichero actual de File Browser.
-	Queda hacer que el recorrido incluya subcarpetas.
+	-Hacer que el recorrido incluya subcarpetas.
+	-Sólo entregar archivos con extensión .java
 -Implementar Parser para obtener datos de las clases.
 -Implementar rutina de salida/término.
