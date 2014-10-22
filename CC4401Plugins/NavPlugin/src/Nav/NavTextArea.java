@@ -153,9 +153,15 @@ public class NavTextArea extends JEditEmbeddedTextArea
 		int width = painter.getWidth() - 1;
 		int h = painter.getFontMetrics().getHeight();
 		int firstPhysicalLine = textArea.getFirstPhysicalLine();
+		Point reference = new Point();
+		reference = offsetToXY(firstPhysicalLine, 0, reference);
+		if (reference == null){
+			return;
+		}
 		int height = textArea.getVisibleLines() * h - 1;
 		graphics.setColor(Color.RED);
-		graphics.drawRect(0,0,width,height);//Hay que arreglar esto!! el segundo valor no tiene que ser 0
+		int y = (int) reference.getY();
+		graphics.drawRect(0,y,width,height);//Hay que arreglar esto!! el segundo valor no tiene que ser 0
 	}
 
 	/**
