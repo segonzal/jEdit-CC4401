@@ -2,10 +2,12 @@ package umlviewer;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.io.File;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
 
 
 
@@ -50,7 +52,12 @@ public class UMLViewer extends JPanel{
 	
 	public void generateUML(){
 		String[] directory = GUIUtilities.showVFSFileDialog(this.view, null, VFSBrowser.CHOOSE_DIRECTORY_DIALOG, false);
-		this.textArea.setText(directory[0]);
+		String[] files = Utilities.getFnD(new File(directory[0]));
+		this.textArea.setText("");
+		for(String file : files){
+			this.textArea.append(file.concat("\n"));
+		}
+		
 		return;
 	}
 }
