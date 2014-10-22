@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ACTIONS SYSTEM "actions.dtd">
+<ACTIONS>
+	<ACTION NAME="GraphvizView-mostrar">
+		<CODE>
+			GraphvizView.GraphvizViewPlugin.show(editPane);
+		</CODE>
+	</ACTION>
+	<ACTION NAME="GraphvizView-ocultar">
+		<CODE>
+			GraphvizView.GraphvizViewPlugin.hide(editPane);
+		</CODE>
+	</ACTION>
+</ACTIONS>
