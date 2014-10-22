@@ -9,7 +9,12 @@ import javax.swing.JScrollPane;
 
 
 
+
+
+
+import org.gjt.sp.jedit.GUIUtilities;
 import org.gjt.sp.jedit.View;
+import org.gjt.sp.jedit.browser.VFSBrowser;
 import org.gjt.sp.jedit.gui.DockableWindowManager;
 
 
@@ -44,7 +49,8 @@ public class UMLViewer extends JPanel{
 	}
 	
 	public void generateUML(){
-		this.textArea.setText("IT'S ALIVE!!!");
+		String[] directory = GUIUtilities.showVFSFileDialog(this.view, null, VFSBrowser.CHOOSE_DIRECTORY_DIALOG, false);
+		this.textArea.setText(directory[0]);
 		return;
 	}
 }
