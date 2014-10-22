@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ACTIONS SYSTEM "actions.dtd">
+
+<ACTIONS>
+	
+	<ACTION NAME="help">
+	<CODE>
+		htmlviewer.HtmlViewerPlugin.showHelp();
+	</CODE>
+	</ACTION>
+	<ACTION NAME="htmlviewer.open-buffer">
+		<CODE>
+			htmlviewer.HtmlViewerPlugin.openCurrentBuffer(view);
+		</CODE>
+	</ACTION>
+
+	<ACTION NAME="htmlviewer.open-sel">
+		<CODE>
+			htmlviewer.HtmlViewerPlugin.openSelectedText(view);
+		</CODE>
+	</ACTION>
+
+</ACTIONS>
