@@ -23,6 +23,7 @@ static int index;
 
 public static void main(String argv[]) {
 	Display display = new Display();
+	// CREA EL DISPLAY
 	final Shell shell = new Shell(display);
 	shell.setText("SWT Browser - Documentation Viewer");
 	shell.setLayout(new GridLayout());
@@ -30,14 +31,19 @@ public static void main(String argv[]) {
 	GridData data = new GridData(GridData.FILL_HORIZONTAL);
 	compTools.setLayoutData(data);
 	compTools.setLayout(new GridLayout(2, false));
+	// CREA LA BARRA DE HERRAMIENTAS
 	ToolBar tocBar = new ToolBar(compTools, SWT.NONE);
+	// BOTON DE BUSCAR ARCHIVO
 	ToolItem openItem = new ToolItem(tocBar, SWT.PUSH);
 	openItem.setText("Browse");
+	// CREA LA BARRA DE NAVEGACION (LADO DERECHO)
 	ToolBar navBar = new ToolBar(compTools, SWT.NONE);
 	navBar.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.HORIZONTAL_ALIGN_END));
+	// BOTON DE REGRESAR HISTORIAL
 	final ToolItem back = new ToolItem(navBar, SWT.PUSH);
 	back.setText("Back");
 	back.setEnabled(false);
+	// BOTON DE AVANZAR HISTORIAL
 	final ToolItem forward = new ToolItem(navBar, SWT.PUSH);
 	forward.setText("Forward");
 	forward.setEnabled(false);
@@ -59,6 +65,7 @@ public static void main(String argv[]) {
 		messageBox.open();
 		System.exit(-1);
 	}
+	// AGREGAR FUNCIONALIDAD A LOS BOTONES
 	back.addListener(SWT.Selection, new Listener() {
 		public void handleEvent(Event event) {
 			browser.back();
