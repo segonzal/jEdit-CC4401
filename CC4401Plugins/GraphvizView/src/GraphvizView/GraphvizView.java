@@ -64,11 +64,12 @@ public class GraphvizView extends JPanel
 		
 		this.pnl.setLayout(new GridLayout(2, 1));
 		
-		// Establecer tamaño mínimo de botón.
 		Dimension minSize = new Dimension(100, 0);
+		// Establecer tamaño mínimo de panel.
+		this.pnl.setMinimumSize(minSize);	
+		
 		final JButton btn = new JButton();
 		final JLabel lbl = new JLabel();
-		this.pnl.setMinimumSize(minSize);	
 		this.pnl.add(lbl);
 		this.pnl.add(btn);
 		final JEditTextArea txt = editPane.getTextArea();
@@ -96,7 +97,19 @@ public class GraphvizView extends JPanel
 	{
 		// Si las propiedades cambian, probablemente haya que hacer una
 		// reconfiguración del Splitter.
-		setSplitterComponents();
+		//setSplitterComponents();
+		
+		String lado = jEdit.getProperty(LADO_PROP);
+		if(lado.equals("DER"))
+		{
+			splitter.setRightComponent(this.pnl);
+			splitter.setLeftComponent(this.child);
+		}
+		else
+		{
+			splitter.setLeftComponent(this.pnl);
+			splitter.setRightComponent(this.child);
+		}
 	}
 	
 	public void start()
