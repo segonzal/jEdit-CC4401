@@ -6,6 +6,7 @@ package GraphvizView;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
@@ -62,8 +63,9 @@ public class GraphvizView extends JPanel
 		// Averiguar primero en qué lado debe mostrarse, y luego insertar objetos.
 		String lado = jEdit.getProperty(LADO_PROP);
 		
-		this.pnl.setLayout(new GridLayout(2, 1));
+		this.pnl.setLayout(new BorderLayout());
 		
+<<<<<<< HEAD
 		Dimension minSize = new Dimension(100, 0);
 		// Establecer tamaño mínimo de panel.
 		this.pnl.setMinimumSize(minSize);	
@@ -72,8 +74,28 @@ public class GraphvizView extends JPanel
 		final JLabel lbl = new JLabel();
 		this.pnl.add(lbl);
 		this.pnl.add(btn);
+=======
+		
+		Dimension minSize = new Dimension(150, 0);
+		// Establecer tamaño mínimo de panel.
+		this.pnl.setMinimumSize(minSize);	
+		
+		final JButton jbtDibujar = new JButton("Dibujar");
+		final JButton jbtLimpiar = new JButton("Limpiar");
+		
+		// A futuro, reemplazar este JLabel con el lienzo para
+		// dibujar el grafo.
+		final JLabel lbl = new JLabel();
+		////////
+		
+		JPanel pnlBotones = new JPanel(new GridLayout(1,2));
+		this.pnl.add(lbl, BorderLayout.CENTER);
+		pnlBotones.add(jbtDibujar);
+		pnlBotones.add(jbtLimpiar);
+		this.pnl.add(pnlBotones, BorderLayout.SOUTH);
+>>>>>>> joseo
 		final JEditTextArea txt = editPane.getTextArea();
-		btn.addActionListener(new ActionListener()
+		jbtDibujar.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
@@ -97,7 +119,10 @@ public class GraphvizView extends JPanel
 	{
 		// Si las propiedades cambian, probablemente haya que hacer una
 		// reconfiguración del Splitter.
+<<<<<<< HEAD
 		//setSplitterComponents();
+=======
+>>>>>>> joseo
 		
 		String lado = jEdit.getProperty(LADO_PROP);
 		if(lado.equals("DER"))
