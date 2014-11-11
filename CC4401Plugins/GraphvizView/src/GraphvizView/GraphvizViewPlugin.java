@@ -31,7 +31,8 @@ public class GraphvizViewPlugin extends EBPlugin
 	@Override
 	public void handleMessage(EBMessage message)
 	{
-		// Identificar qué tipo de mensaje es.
+		// Identificar qué tipo de mensaje es. Listado completo en:
+		// http://web.mit.edu/~jedit/arch/java/versions/4.3pre5/doc/api/org/gjt/sp/jedit/msg/package-summary.html
 		if (message instanceof PropertiesChanged)
 		{
 			// Si cambiaron las opciones del plugin, actualizar
