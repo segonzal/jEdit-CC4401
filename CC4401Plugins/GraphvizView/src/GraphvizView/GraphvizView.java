@@ -8,6 +8,7 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Color;
 
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
@@ -42,6 +43,8 @@ public class GraphvizView extends JPanel
 	{
 		this.jpnPanel = new JPanel();
 		this.jlbImagen = new JLabel();
+		this.jlbImagen.setBackground(Color.white);
+		this.jlbImagen.setOpaque(true);
 		this.jlbImagen.setHorizontalAlignment(JLabel.CENTER);
 		// GraphvizView extiende a JPanel. Se establece un layout de una
 		// sola celda.
@@ -72,22 +75,7 @@ public class GraphvizView extends JPanel
 		// Averiguar primero en qué lado debe mostrarse, y luego insertar objetos.
 		String lado = jEdit.getProperty(LADO_PROP);
 		
-<<<<<<< HEAD
-		this.pnl.setLayout(new BorderLayout());
-		
-<<<<<<< HEAD
-		Dimension minSize = new Dimension(100, 0);
-		// Establecer tamaño mínimo de panel.
-		this.pnl.setMinimumSize(minSize);	
-		
-		final JButton btn = new JButton();
-		final JLabel lbl = new JLabel();
-		this.pnl.add(lbl);
-		this.pnl.add(btn);
-=======
-=======
 		this.jpnPanel.setLayout(new BorderLayout());
->>>>>>> joseo
 		
 		Dimension minSize = new Dimension(150, 0);
 		// Establecer tamaño mínimo de panel.
@@ -102,16 +90,6 @@ public class GraphvizView extends JPanel
 		this.jpnPanel.add(jpnBotones, BorderLayout.SOUTH);
 		this.jpnPanel.add(this.jlbImagen, BorderLayout.CENTER);
 		
-<<<<<<< HEAD
-		JPanel pnlBotones = new JPanel(new GridLayout(1,2));
-		this.pnl.add(lbl, BorderLayout.CENTER);
-		pnlBotones.add(jbtDibujar);
-		pnlBotones.add(jbtLimpiar);
-		this.pnl.add(pnlBotones, BorderLayout.SOUTH);
->>>>>>> joseo
-		final JEditTextArea txt = editPane.getTextArea();
-=======
->>>>>>> joseo
 		jbtDibujar.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -178,10 +156,6 @@ public class GraphvizView extends JPanel
 	{
 		// Si las propiedades cambian, probablemente haya que hacer una
 		// reconfiguración del Splitter.
-<<<<<<< HEAD
-		//setSplitterComponents();
-=======
->>>>>>> joseo
 		
 		String lado = jEdit.getProperty(LADO_PROP);
 		if(lado.equals("DER"))
