@@ -70,13 +70,15 @@ public class GraphvizAPI
    /**
     * The dir. where temporary files will be created.
     */
-   private static String TEMP_DIR = "/tmp";	// Linux
+    // Hacer públicas las variables estáticas TEMP_DIR y DOT, para poder
+    // personalizarlas externamente.
+   public static String TEMP_DIR = "/tmp";	// Linux
  //  private static String TEMP_DIR = "c:/temp";	// Windows
 
    /**
     * Where is your dot program located? It will be called externally.
     */
-   private static String DOT = "/usr/bin/dot";	// Linux
+   public static String DOT = "/usr/bin/dot";	// Linux
 //   private static String DOT = "c:/Program Files/GraphvizAPI2.26.3/bin/dot.exe";	// Windows
 
    /**
