@@ -15,11 +15,15 @@ public class Opciones extends AbstractOptionPane
   private static final String LADO_PROP = "options.GraphvizView.lado";
   private static final String RUTA_DOT_LABEL = "labels.GraphvizView.ruta_dot";
   private static final String RUTA_DOT_PROP = "options.GraphvizView.ruta_dot";
+  private static final String TMP_DIR_LABEL = "labels.GraphvizView.tmp_dir";
+  private static final String TMP_DIR_PROP = "options.GraphvizView.tmp_dir";
 
   private JComboBox jcb_lado;
   private JLabel jlb_lado;
   private JTextField jtf_ruta_dot;
+  private JTextField jtf_tmp_dir;
   private JLabel jlb_ruta_dot;
+  private JLabel jlb_tmp_dir;
 
   public static final String IZQ = "IZQ";
   public static final String DER = "DER";
@@ -42,6 +46,9 @@ public class Opciones extends AbstractOptionPane
     jtf_ruta_dot = new JTextField(jEdit.getProperty(RUTA_DOT_PROP));
     jlb_ruta_dot = new JLabel(jEdit.getProperty(RUTA_DOT_LABEL));
     addComponent(jlb_ruta_dot, jtf_ruta_dot);
+    jtf_tmp_dir = new JTextField(jEdit.getProperty(TMP_DIR_PROP));
+    jlb_tmp_dir = new JLabel(jEdit.getProperty(TMP_DIR_LABEL));
+    addComponent(jlb_tmp_dir, jtf_tmp_dir);
   }
 
   @Override
@@ -50,5 +57,6 @@ public class Opciones extends AbstractOptionPane
     // Indicar qué propiedades deben guardarse.
     jEdit.setProperty(LADO_PROP, jcb_lado.getSelectedItem().toString());
     jEdit.setProperty(RUTA_DOT_PROP, jtf_ruta_dot.getText());
+    jEdit.setProperty(TMP_DIR_PROP, jtf_tmp_dir.getText());
   }
 }
