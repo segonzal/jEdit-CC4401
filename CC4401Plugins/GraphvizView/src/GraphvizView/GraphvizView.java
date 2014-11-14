@@ -24,7 +24,7 @@ import java.awt.event.ActionEvent;
 
 import graphvizapi.GraphvizAPI;
 
-
+import java.io.File;
 
 public class GraphvizView extends JPanel
 {
@@ -33,16 +33,17 @@ public class GraphvizView extends JPanel
 	private Component child;
 	private final JSplitPane splitter;
 	private final String LADO_PROP = "options.GraphvizView.lado";
+	private final String RUTA_DOT = "options.GraphvizView.ruta_dot";
 	private JPanel jpnPanel;
 	private final JLabel jlbImagen;
 	
 	public GraphvizView(EditPane editPane)
 	{
-		// GraphvizView extiende a JPanel. Se establece un layout de una
-		// sola celda.
 		this.jpnPanel = new JPanel();
 		this.jlbImagen = new JLabel();
 		this.jlbImagen.setHorizontalAlignment(JLabel.CENTER);
+		// GraphvizView extiende a JPanel. Se establece un layout de una
+		// sola celda.
 		this.setLayout(new GridLayout(1, 1));
 		this.editPane = editPane;
 		JEditTextArea textArea = editPane.getTextArea();
@@ -113,21 +114,39 @@ public class GraphvizView extends JPanel
 		}
 	}
 	
-	///////////////////////////////////////
 	public void actualizarGrafo()
 	{
-		//JEditTextArea txt = editPane.getTextArea();
-		//lbl.setText(txt.getText());
-		this.jlbImagen.setIcon(new ImageIcon("prueba.png"));
+		String dir_tmp = "/tmp";
+		String texto_grafo = "";
+		String arch_tmp = "~graphviz_tmp.png";
+		String ruta_tmp = dir_tmp + "/" + arch_tmp;
+		
+		// Obtener texto del área de texto activa.
+		JEditTextArea txt = editPane.getTextArea();
+		texto_grafo = txt.getText();
+		
+		// Crear enlace a Graphviz y configurarlo.
+		GraphvizAPI.DOT = jEdit.getProperty(RUTA_DOT);
+		GraphvizAPI.TEMP_DIR = dir_tmp;
 		GraphvizAPI gv = new GraphvizAPI();
+		
+		// Verter código del grafo.
+		gv.addln(texto_grafo);
+		
+		// Generar imagen.
+		File out = new File(ruta_tmp);
+		gv.writeGraphToFile(gv.getGraph(gv.getDotSource(), "png"), out);
+		
+		// Mostrar imagen en plugin.
+		ImageIcon icon = new ImageIcon(ruta_tmp);
+		icon.getImage().flush();
+		jlbImagen.setIcon(icon);
 	}
 	
 	public void limpiarGrafo()
 	{
 		this.jlbImagen.setIcon(null);
-	}
-	///////////////////////////////////////
-	
+	}	
 	
 	public void propertiesChanged()
 	{
