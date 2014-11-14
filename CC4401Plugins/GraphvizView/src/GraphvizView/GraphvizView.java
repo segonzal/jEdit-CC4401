@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 import org.gjt.sp.jedit.EditPane;
 import org.gjt.sp.jedit.textarea.JEditTextArea;
@@ -20,6 +21,8 @@ import org.gjt.sp.jedit.jEdit;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import graphvizapi.GraphvizAPI;
 
 
 
@@ -30,12 +33,16 @@ public class GraphvizView extends JPanel
 	private Component child;
 	private final JSplitPane splitter;
 	private final String LADO_PROP = "options.GraphvizView.lado";
-	private JPanel pnl = new JPanel();
+	private JPanel jpnPanel;
+	private final JLabel jlbImagen;
 	
 	public GraphvizView(EditPane editPane)
 	{
 		// GraphvizView extiende a JPanel. Se establece un layout de una
 		// sola celda.
+		this.jpnPanel = new JPanel();
+		this.jlbImagen = new JLabel();
+		this.jlbImagen.setHorizontalAlignment(JLabel.CENTER);
 		this.setLayout(new GridLayout(1, 1));
 		this.editPane = editPane;
 		JEditTextArea textArea = editPane.getTextArea();
@@ -63,46 +70,64 @@ public class GraphvizView extends JPanel
 		// Averiguar primero en qué lado debe mostrarse, y luego insertar objetos.
 		String lado = jEdit.getProperty(LADO_PROP);
 		
-		this.pnl.setLayout(new BorderLayout());
-		
+		this.jpnPanel.setLayout(new BorderLayout());
 		
 		Dimension minSize = new Dimension(150, 0);
 		// Establecer tamaño mínimo de panel.
-		this.pnl.setMinimumSize(minSize);	
+		this.jpnPanel.setMinimumSize(minSize);	
 		
 		final JButton jbtDibujar = new JButton("Dibujar");
 		final JButton jbtLimpiar = new JButton("Limpiar");
 		
-		// A futuro, reemplazar este JLabel con el lienzo para
-		// dibujar el grafo.
-		final JLabel lbl = new JLabel();
-		////////
+		JPanel jpnBotones = new JPanel(new GridLayout(1,2));
+		jpnBotones.add(jbtDibujar);
+		jpnBotones.add(jbtLimpiar);
+		this.jpnPanel.add(jpnBotones, BorderLayout.SOUTH);
+		this.jpnPanel.add(this.jlbImagen, BorderLayout.CENTER);
 		
-		JPanel pnlBotones = new JPanel(new GridLayout(1,2));
-		this.pnl.add(lbl, BorderLayout.CENTER);
-		pnlBotones.add(jbtDibujar);
-		pnlBotones.add(jbtLimpiar);
-		this.pnl.add(pnlBotones, BorderLayout.SOUTH);
-		final JEditTextArea txt = editPane.getTextArea();
 		jbtDibujar.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				lbl.setText(txt.getText());
+				actualizarGrafo();
+			}
+		});
+		
+		jbtLimpiar.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				limpiarGrafo();
 			}
 		});
 		
 		if(lado.equals("DER"))
 		{
-			splitter.setRightComponent(this.pnl);
+			splitter.setRightComponent(this.jpnPanel);
 			splitter.setLeftComponent(this.child);
 		}
 		else
 		{
-			splitter.setLeftComponent(this.pnl);
+			splitter.setLeftComponent(this.jpnPanel);
 			splitter.setRightComponent(this.child);
 		}
 	}
+	
+	///////////////////////////////////////
+	public void actualizarGrafo()
+	{
+		//JEditTextArea txt = editPane.getTextArea();
+		//lbl.setText(txt.getText());
+		this.jlbImagen.setIcon(new ImageIcon("prueba.png"));
+		GraphvizAPI gv = new GraphvizAPI();
+	}
+	
+	public void limpiarGrafo()
+	{
+		this.jlbImagen.setIcon(null);
+	}
+	///////////////////////////////////////
+	
 	
 	public void propertiesChanged()
 	{
@@ -112,12 +137,12 @@ public class GraphvizView extends JPanel
 		String lado = jEdit.getProperty(LADO_PROP);
 		if(lado.equals("DER"))
 		{
-			splitter.setRightComponent(this.pnl);
+			splitter.setRightComponent(this.jpnPanel);
 			splitter.setLeftComponent(this.child);
 		}
 		else
 		{
-			splitter.setLeftComponent(this.pnl);
+			splitter.setLeftComponent(this.jpnPanel);
 			splitter.setRightComponent(this.child);
 		}
 	}
