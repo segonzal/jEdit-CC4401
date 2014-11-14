@@ -21,6 +21,8 @@ labels.GraphvizView.lado=Posici&oacute;n de visor
 options.GraphvizView.lado=IZQ
 labels.GraphvizView.ruta_dot=Ruta de comando 'dot'
 options.GraphvizView.ruta_dot=/usr/bin/dot
+labels.GraphvizView.tmp_dir=Directorio temporal
+options.GraphvizView.tmp_dir=/tmp
 
 # Ítemes del menú del plugin
 plugin.GraphvizView.GraphvizViewPlugin.menu=GraphvizView-mostrar GraphvizView-ocultar

@@ -33,7 +33,8 @@ public class GraphvizView extends JPanel
 	private Component child;
 	private final JSplitPane splitter;
 	private final String LADO_PROP = "options.GraphvizView.lado";
-	private final String RUTA_DOT = "options.GraphvizView.ruta_dot";
+	private final String RUTA_DOT_PROP = "options.GraphvizView.ruta_dot";
+	private final String TMP_DIR_PROP = "options.GraphvizView.tmp_dir";
 	private JPanel jpnPanel;
 	private final JLabel jlbImagen;
 	
@@ -116,7 +117,7 @@ public class GraphvizView extends JPanel
 	
 	public void actualizarGrafo()
 	{
-		String dir_tmp = "/tmp";
+		String dir_tmp = jEdit.getProperty(TMP_DIR_PROP);
 		String texto_grafo = "";
 		String arch_tmp = "~graphviz_tmp.png";
 		String ruta_tmp = dir_tmp + "/" + arch_tmp;
@@ -126,7 +127,7 @@ public class GraphvizView extends JPanel
 		texto_grafo = txt.getText();
 		
 		// Crear enlace a Graphviz y configurarlo.
-		GraphvizAPI.DOT = jEdit.getProperty(RUTA_DOT);
+		GraphvizAPI.DOT = jEdit.getProperty(RUTA_DOT_PROP);
 		GraphvizAPI.TEMP_DIR = dir_tmp;
 		GraphvizAPI gv = new GraphvizAPI();
 		
