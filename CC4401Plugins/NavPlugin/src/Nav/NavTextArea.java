@@ -75,6 +75,7 @@ public class NavTextArea extends JEditEmbeddedTextArea
 		getPainter().setWrapGuidePainted(false);
 		getPainter().setAntiAlias(new AntiAlias(0));
 		resizeFont();
+		getPainter().setSelectionColor(Color.WHITE);
 		addFocusListener(new FocusListener()
 		{
 
@@ -159,7 +160,7 @@ public class NavTextArea extends JEditEmbeddedTextArea
 			return;
 		}
 		int height = textArea.getVisibleLines() * h - 1;
-		graphics.setColor(Color.RED);
+		graphics.setColor(Color.BLUE);
 		int y = (int) reference.getY();
 		graphics.drawRect(0,y,width,height);//Hay que arreglar esto!! el segundo valor no tiene que ser 0
 	}
