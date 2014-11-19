@@ -1,9 +1,9 @@
 # Propiedades de plugin
 plugin.GraphvizView.GraphvizViewPlugin.name=GraphvizView
 plugin.GraphvizView.GraphvizViewPlugin.activate=startup
-plugin.GraphvizView.GraphvizViewPlugin.description=Visualizar Graphviz a medida que se escribe su c&oacute;digo
+plugin.GraphvizView.GraphvizViewPlugin.description=Permite visualizar un grafo de Graphviz a medida que se escribe su c&oacute;digo.
 plugin.GraphvizView.GraphvizViewPlugin.author=Jos&eacute; Ojeda
-plugin.GraphvizView.GraphvizViewPlugin.version=0.0alpha
+plugin.GraphvizView.GraphvizViewPlugin.version=0.0 Beta
 plugin.GraphvizView.GraphvizViewPlugin.docs=info.html
 plugin.GraphvizView.GraphvizViewPlugin.usePluginHome=true
 plugin.GraphvizView.GraphvizViewPlugin.depend.0=jdk 1.7
@@ -17,7 +17,7 @@ GraphvizView-ocultar.label=Ocultar GraphvizView
 # Panel de configuración del plugin
 options.GraphvizView.label=GraphvizView
 options.GraphvizView.code=new GraphvizView.Opciones();
-labels.GraphvizView.lado=Posici&oacute;n de visor
+labels.GraphvizView.lado=Posición de visor
 options.GraphvizView.lado=IZQ
 labels.GraphvizView.ruta_dot=Ruta de comando 'dot'
 options.GraphvizView.ruta_dot=/usr/bin/dot
