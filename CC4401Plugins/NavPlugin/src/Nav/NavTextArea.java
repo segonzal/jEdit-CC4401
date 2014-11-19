@@ -24,6 +24,7 @@ package Nav;
 import java.awt.Font;
 
 import java.awt.*;
+import java.awt.TextArea;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
@@ -35,10 +36,7 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JScrollBar;
 
 import org.gjt.sp.jedit.syntax.SyntaxStyle;
-import org.gjt.sp.jedit.textarea.AntiAlias;
-import org.gjt.sp.jedit.textarea.JEditEmbeddedTextArea;
-import org.gjt.sp.jedit.textarea.JEditTextArea;
-import org.gjt.sp.jedit.textarea.TextAreaPainter;
+import org.gjt.sp.jedit.textarea.*;
 
 /**
  * Created by luism on 18-10-14.
@@ -49,6 +47,7 @@ import org.gjt.sp.jedit.textarea.TextAreaPainter;
  */
 public class NavTextArea extends JEditEmbeddedTextArea
 {
+	private TextAreaScrollListener textAreaScrollListener;
 	private JScrollBar scrollBar;
 	private JEditTextArea textArea;
 	private MouseMotionListener mouseMotionListener;
@@ -64,10 +63,12 @@ public class NavTextArea extends JEditEmbeddedTextArea
 		this.textArea = textArea;
 		mouseMotionListener=new NavMouseMotionListener();
 		mouseListener=new NavMouseListener();
+		textAreaScrollListener = new TextAreaScrollListener();
 		scrollBar=getScrollBar(this);
 		scrollBar.setVisible(false);
 		painter.addMouseMotionListener(mouseMotionListener);
 		painter.addMouseListener(mouseListener);
+		textArea.addScrollListener(textAreaScrollListener);
 		getBuffer().setProperty("folding", "explicit");
 		setBuffer(textArea.getBuffer());
 		getPainter().setCursor(
@@ -184,6 +185,34 @@ public class NavTextArea extends JEditEmbeddedTextArea
 			setFirstPhysicalLine(line + visibleLines - getVisibleLines());
 		repaint();
 
+	}
+	private void scrollToMakeTextAreaVisible() {
+		int otherFirst = textArea.getFirstPhysicalLine();
+		int thisFirst = getFirstPhysicalLine();
+		if (otherFirst < thisFirst)
+			setFirstPhysicalLine(otherFirst);
+		else {
+			int otherLast = otherFirst + textArea.getVisibleLines() - 1;
+			int thisLast = thisFirst + getVisibleLines() - 1;
+			if (otherLast > thisLast)
+				setFirstPhysicalLine(thisFirst + otherLast - thisLast);
+		}
+		repaint();
+	}
+	private class TextAreaScrollListener implements ScrollListener
+	{
+		@Override
+		public void scrolledVertically(org.gjt.sp.jedit.textarea.TextArea textArea)
+		{
+			if (textArea.getBuffer() == getBuffer())
+				scrollToMakeTextAreaVisible();
+		}
+
+		@Override
+		public void scrolledHorizontally(org.gjt.sp.jedit.textarea.TextArea textArea)
+		{
+
+		}
 	}
 	private class NavMouseMotionListener extends MouseMotionAdapter
 	{
