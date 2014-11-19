@@ -23,7 +23,8 @@ package Nav;
 /**
  * Created by luism on 18-10-14.
  */
-import org.gjt.sp.jedit.EditPlugin;
+import org.gjt.sp.jedit.EBMessage;
+import org.gjt.sp.jedit.EBPlugin;
 import org.gjt.sp.jedit.EditPane;
 import org.gjt.sp.jedit.jEdit;
 import org.gjt.sp.jedit.visitors.JEditVisitorAdapter;
@@ -34,10 +35,15 @@ import java.util.Map;
 import java.util.Set;
 
 import java.awt.EventQueue;
-public class NavPlugin extends EditPlugin
+public class NavPlugin extends EBPlugin
 {
 	public static final String NAME = "Nav";
 	private static Map<EditPane, Nav> views;
+
+	@Override
+	public void handleMessage(EBMessage message) {
+
+	}
 
 	private static void hide(EditPane editPane, boolean restore)
 	{
@@ -80,6 +86,7 @@ public class NavPlugin extends EditPlugin
 			}
 		});
 	}
+
 
 	public static void show(final EditPane editPane)
 	{
