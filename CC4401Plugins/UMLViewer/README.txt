@@ -13,5 +13,7 @@ Para instalar el Plugin se debe copiar el .jar generado y pegarlo en la carpeta 
 -HECHO-Implementar clase que recorra el fichero actual de File Browser.
 	-Hacer que el recorrido incluya subcarpetas.
 	-Sólo entregar archivos con extensión .java
+-HECHO-Implementar rutina de salida/término.
+	-Se aprovecha la implementación propia de las clases que extienden de EditPlugin.
 -Implementar Parser para obtener datos de las clases.
--Implementar rutina de salida/término.
+-Implementar creador de dibujo.

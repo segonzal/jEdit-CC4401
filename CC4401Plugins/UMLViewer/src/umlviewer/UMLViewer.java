@@ -2,9 +2,7 @@ package umlviewer;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -44,41 +42,14 @@ public class UMLViewer extends JPanel{
 	public void generateUML(){
 		String[] directory = GUIUtilities.showVFSFileDialog(this.view, null, VFSBrowser.CHOOSE_DIRECTORY_DIALOG, false);
 		List<String> files = Utilities.getFnD(new File(directory[0]));
-		this.textArea.setText("");
-		//abrir archivos
-		File archivo = null;
-		FileReader fr = null;
-		BufferedReader br = null;
+		//this.textArea.setText("Abriendo...");
 		
-		for(String file : files){
-			try {
-				// Apertura del fichero y creacion de BufferedReader para poder
-				// hacer una lectura comoda (disponer del metodo readLine()).
-				archivo = new File (directory[0].concat("\\").concat(file));
-				fr = new FileReader (archivo);
-				br = new BufferedReader(fr);
-				this.textArea.append(file.concat(":\n"));
-				// Lectura del fichero
-				String linea;
-				while((linea=br.readLine())!=null)
-					this.textArea.append(linea.concat("\n"));
-			}
-			catch(Exception e){
-				e.printStackTrace();
-			}finally{
-		        // En el finally cerramos el fichero, para asegurarnos
-		        // que se cierra tanto si todo va bien como si salta 
-		        // una excepcion.
-				try{                    
-					if( null != fr ){   
-						fr.close();     
-					}                  
-				}catch (Exception e2){ 
-					e2.printStackTrace();
-				}
-			}
-			this.textArea.append("----------------------------------------\n");
-		}
+		String lines = Utilities.parseFiles(directory, files);
+		//this.textArea.append("\nProcesando\n");
+		//abrir archivos
+		this.textArea.setText(lines);
+		
+		//this.textArea.append("\nListo\n");
 		
 		return;
 	}

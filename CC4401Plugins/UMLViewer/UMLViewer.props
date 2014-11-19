@@ -10,7 +10,7 @@ plugin.umlviewer.UMLViewerPlugin.name=UMLViewer
 plugin.umlviewer.UMLViewerPlugin.author=Américo Jerez, Matías Rodrígez
 
 # version number == jEdit version number
-plugin.umlviewer.UMLViewerPlugin.version=0.0preAlpha
+plugin.umlviewer.UMLViewerPlugin.version=0.1Alpha
 
 # we only have one dependency, jEdit 5.2pre1
 plugin.umlviewer.UMLViewerPlugin.depend.0=jdk 1.7
