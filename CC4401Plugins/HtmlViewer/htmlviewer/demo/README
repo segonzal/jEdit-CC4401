@@ -1,0 +1,9 @@
+
+Compilar:
+javac -cp ../lib/swt.jar DocumentationViewer.java 
+
+Ejecutar:
+java -cp .:../lib/swt.jar DocumentationViewer
+
+Hacer click en browse y buscar un archivo HTML.
+back & forward regresan y avanzan en el historial.
