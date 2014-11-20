@@ -15,5 +15,8 @@ Para instalar el Plugin se debe copiar el .jar generado y pegarlo en la carpeta 
 	-Sólo entregar archivos con extensión .java
 -HECHO-Implementar rutina de salida/término.
 	-Se aprovecha la implementación propia de las clases que extienden de EditPlugin.
--Implementar Parser para obtener datos de las clases.
--Implementar creador de dibujo.
+-HECHO-Implementar Parser para obtener datos de las clases.
+	-Parser básico que entrega clase, extiende a, implementa a y métodos.
+-HECHO-Implementar creador de dibujo.
+	-Se utiliza PlantUML para dibujar los gráficos uml. Se proporciona el .jar de la librería de manera aparte.
+	-PlantUML utiliza Graphviz, con lo cual se debe tener correctamente instalada una versión reciente.

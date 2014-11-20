@@ -17,6 +17,8 @@ plugin.umlviewer.UMLViewerPlugin.depend.0=jdk 1.7
 # See jEdit.getBuild() to understand version numbering scheme. 
 plugin.umlviewer.UMLViewerPlugin.depend.1=jedit 05.02.00.00
 
+plugin.umlviewer.UMLViewerPlugin.jars=plantuml.jar
+
 plugin.umlviewer.UMLViewerPlugin.description=Versión 0.0alpha de UMLViewer, intentando hacer que aparezcan cosas.
 
 plugin.umlviewer.UMLViewerPlugin.menu=umlviewer \
