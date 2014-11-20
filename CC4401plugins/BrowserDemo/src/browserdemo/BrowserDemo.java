@@ -8,12 +8,16 @@ package browserdemo;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.SWTError;
 import org.eclipse.swt.browser.Browser;
+import org.eclipse.swt.browser.LocationEvent;
+import org.eclipse.swt.browser.LocationListener;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.ToolBar;
@@ -24,14 +28,15 @@ import org.eclipse.swt.widgets.ToolItem;
  * @author segonzal
  */
 public class BrowserDemo {
-    private Browser browser;
+    private static Browser browser;
     private static Shell shell;
     private static Display display;
+    private static Boolean locked = false;
     
     public BrowserDemo(){
         display = new Display();
         shell = new Shell(display);
-        shell.setText("HtmlViewer Browser DEMO");
+        
         shell.setLayout(new GridLayout());
         Composite compTools = new Composite(shell, SWT.NONE);
         GridData data = new GridData(GridData.FILL_HORIZONTAL);
@@ -74,7 +79,54 @@ public class BrowserDemo {
 		messageBox.open();
 		System.exit(-1);
 	}
-        browser.setUrl("http://www.google.cl/");
+        
+        shell.setText("HtmlViewer Browser DEMO - " + browser.getBrowserType());
+        
+        //AGREGAR FUNCIONALIDAD A LOS BOTONES
+        back.addListener(SWT.Selection, new Listener() {
+            @Override
+            public void handleEvent(Event event) {
+                browser.back();
+            }
+	});
+        forward.addListener(SWT.Selection, new Listener() {
+            @Override
+            public void handleEvent(Event event) {
+                browser.forward();
+            }
+	});
+        final LocationListener locationListener = new LocationListener() {
+            @Override
+            public void changing(LocationEvent event) {
+                Browser browser = (Browser)event.widget;
+                back.setEnabled(browser.isBackEnabled());
+                forward.setEnabled(browser.isForwardEnabled());
+            }
+
+            @Override
+            public void changed(LocationEvent event) {
+                //does nothing
+            }
+	};
+        browser.addLocationListener(locationListener);
+        
+        refresh.addListener(SWT.Selection, new Listener(){
+            @Override
+            public void handleEvent(Event event) {
+                if (!locked)
+                    browser.refresh();
+            }
+        });
+        lock.addListener(SWT.Selection, new Listener(){
+            @Override
+            public void handleEvent(Event event) {
+                locked = !locked;
+                if (locked)
+                    lock.setText("Unlock");
+                else
+                    lock.setText("Lock");
+            }
+        });
     }
     
     public static void run(){
@@ -85,11 +137,16 @@ public class BrowserDemo {
 	display.dispose();
     }
     
+    public static void setURL(String url){
+        browser.setUrl(url);
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         BrowserDemo demo = new BrowserDemo();
+        demo.setURL("http://www.google.cl/");
         demo.run();
     }
     
